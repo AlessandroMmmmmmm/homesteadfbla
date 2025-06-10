@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';   
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { getFirestore, collection, query, limit, orderBy, getDocs, where, addDoc, updateDoc, doc, deleteDoc, setDoc } from 'firebase/firestore';
 import { auth } from '@/app/firebase';
 import Tabs from '@mui/material/Tabs';
@@ -21,20 +21,25 @@ const ProfileCard = () => {
   const [user, setUser] = useState(null);
   const [authType, setAuthType] = useState(null);
   const [value, setValue] = useState("1");
-  const [leaderboardType, setLeaderboardType] = useState('regular'); // New state to manage leaderboard type
+  const [leaderboardType, setLeaderboardType] = useState('regular');
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const [writtenLeaderboardData, setWrittenLeaderboardData] = useState([]); // New state for written practice session leaderboard
+  const [writtenLeaderboardData, setWrittenLeaderboardData] = useState([]);
   const [userPlacement, setUserPlacement] = useState(null);
-  const [eventsData, setEventsData] = useState([]);
-  const [pastEventsData, setPastEventsData] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [newEvent, setNewEvent] = useState({ title: '', date: '', description: '' });
-  const [editingEvent, setEditingEvent] = useState(null);
-  const [showPastEvents, setShowPastEvents] = useState(false);
+  const [userPoints, setUserPoints] = useState(0);
 
   const isMobile = useMediaQuery('(max-width:600px)');
 
+  // Define milestones
+  const milestones = [
+    { name: 'Bronze Member', points: 10, color: '#CD7F32' },
+    { name: 'Silver Member', points: 25, color: '#C0C0C0' },
+    { name: 'Gold Member', points: 50, color: '#FFD700' },
+    { name: 'Platinum Member', points: 75, color: '#E5E4E2' },
+    { name: 'Diamond Member', points: 100, color: '#B9F2FF' }
+  ];
+
   useEffect(() => {
+    const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -62,72 +67,54 @@ const ProfileCard = () => {
   const fetchLeaderboardData = useCallback(async () => {
     if (!user) return;
     const db = getFirestore();
-    const topUsersQuery = query(collection(db, 'activityPoints'), orderBy('activityPoints', 'desc'), limit(5));
-    const topUsersSnapshot = await getDocs(topUsersQuery);
-
-    const topUsers = topUsersSnapshot.docs.map(doc => ({
+    
+    // Get all users ordered by points to calculate rank
+    const allUsersQuery = query(collection(db, 'activityPoints'), orderBy('activityPoints', 'desc'));
+    const allUsersSnapshot = await getDocs(allUsersQuery);
+    const allUsers = allUsersSnapshot.docs.map(doc => ({
       name: doc.data().name,
       activityPoints: doc.data().activityPoints,
       email: doc.data().email
     }));
 
-    setLeaderboardData(topUsers);
+    // Set top 5 for leaderboard
+    setLeaderboardData(allUsers.slice(0, 5));
 
-    if (!topUsers.some(u => u.email === user.email)) {
-      const userQuery = query(collection(db, 'activityPoints'), where('email', '==', user.email));
-      const userSnapshot = await getDocs(userQuery);
-
-      if (!userSnapshot.empty) {
-        const userDoc = userSnapshot.docs[0];
-        const userData = {
-          name: userDoc.data().name,
-          activityPoints: userDoc.data().activityPoints,
-          email: userDoc.data().email
-        };
-
-        // const allUsersQuery = query(collection(db, 'activityPoints'), orderBy('activityPoints', 'desc'));
-        // const allUsersSnapshot = await getDocs(allUsersQuery);
-        // const allUsers = allUsersSnapshot.docs.map(doc => doc.data().email);
-        // const userRank = allUsers.indexOf(userData.email) + 1;
-
-        setUserPlacement({ ...userData});
-      }
+    // Find user's rank
+    const userRank = allUsers.findIndex(u => u.email === user.email) + 1;
+    const userData = allUsers.find(u => u.email === user.email);
+    
+    if (userData && !allUsers.slice(0, 5).some(u => u.email === user.email)) {
+      setUserPlacement({ ...userData, rank: userRank });
+    } else {
+      setUserPlacement(null);
     }
   }, [user]);
 
   const fetchWrittenLeaderboardData = useCallback(async () => {
     if (!user) return;
     const db = getFirestore();
-    const topUsersQuery = query(collection(db, 'writtenActivityPoints'), orderBy('activityPoints', 'desc'), limit(5));
-    const topUsersSnapshot = await getDocs(topUsersQuery);
-
-    const topUsers = topUsersSnapshot.docs.map(doc => ({
+    
+    // Get all users ordered by points to calculate rank
+    const allUsersQuery = query(collection(db, 'writtenActivityPoints'), orderBy('activityPoints', 'desc'));
+    const allUsersSnapshot = await getDocs(allUsersQuery);
+    const allUsers = allUsersSnapshot.docs.map(doc => ({
       name: doc.data().name,
       activityPoints: doc.data().activityPoints,
       email: doc.data().email
     }));
 
-    setWrittenLeaderboardData(topUsers);
+    // Set top 5 for leaderboard
+    setWrittenLeaderboardData(allUsers.slice(0, 5));
 
-    if (!topUsers.some(u => u.email === user.email)) {
-      const userQuery = query(collection(db, 'writtenActivityPoints'), where('email', '==', user.email));
-      const userSnapshot = await getDocs(userQuery);
-
-      if (!userSnapshot.empty) {
-        const userDoc = userSnapshot.docs[0];
-        const userData = {
-          name: userDoc.data().name,
-          activityPoints: userDoc.data().activityPoints,
-          email: userDoc.data().email
-        };
-
-        const allUsersQuery = query(collection(db, 'writtenActivityPoints'), orderBy('activityPoints', 'desc'));
-        const allUsersSnapshot = await getDocs(allUsersQuery);
-        const allUsers = allUsersSnapshot.docs.map(doc => doc.data().email);
-        const userRank = allUsers.indexOf(userData.email) + 1;
-
-        setUserPlacement({ ...userData, rank: userRank });
-      }
+    // Find user's rank
+    const userRank = allUsers.findIndex(u => u.email === user.email) + 1;
+    const userData = allUsers.find(u => u.email === user.email);
+    
+    if (userData && !allUsers.slice(0, 5).some(u => u.email === user.email)) {
+      setUserPlacement({ ...userData, rank: userRank });
+    } else {
+      setUserPlacement(null);
     }
   }, [user]);
 
@@ -139,141 +126,42 @@ const ProfileCard = () => {
     }
   }, [leaderboardType, fetchLeaderboardData, fetchWrittenLeaderboardData]);
 
-  const fetchEvents = useCallback(async () => {
-    const db = getFirestore();
-
-    // Fetch upcoming events
-    const upcomingEventsRef = query(collection(db, 'upcomingEvents', 'upcoming', 'events'), orderBy('date', 'asc'));
-    const upcomingQuerySnapshot = await getDocs(upcomingEventsRef);
-    const upcomingEvents = upcomingQuerySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-
-    setEventsData(upcomingEvents);
-  }, []);
-
   useEffect(() => {
-    fetchEvents();
-  }, [fetchEvents]);
+    const fetchUserPoints = async () => {
+      if (!user) return;
+      const db = getFirestore();
+      const userPointsRef = query(
+        collection(db, 'activityPoints'),
+        where('email', '==', user.email)
+      );
+      const pointsSnapshot = await getDocs(userPointsRef);
+      if (!pointsSnapshot.empty) {
+        setUserPoints(pointsSnapshot.docs[0].data().activityPoints || 0);
+      }
+    };
 
-  const fetchPastEvents = useCallback(async () => {
-    const db = getFirestore();
-
-    // Fetch past events
-    const pastEventsRef = query(collection(db, 'upcomingEvents', 'past', 'events'), orderBy('date', 'asc'));
-    const pastQuerySnapshot = await getDocs(pastEventsRef);
-    const pastEvents = pastQuerySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-
-    setPastEventsData(pastEvents);
-  }, []);
-
-  const handleTogglePastEvents = () => {
-    if (!showPastEvents) {
-      fetchPastEvents();
-    }
-    setShowPastEvents(!showPastEvents);
-  };
+    fetchUserPoints();
+  }, [user]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const handleOpenModal = (event = null) => {
-    if (event) {
-      setEditingEvent(event);
-      setNewEvent({ title: event.title, date: event.date, description: event.description });
-    } else {
-      setEditingEvent(null);
-      setNewEvent({ title: '', date: '', description: '' });
-    }
-    setIsModalOpen(true);
+  const getCurrentMilestone = () => {
+    const achievedMilestones = milestones.filter(m => userPoints >= m.points);
+    return achievedMilestones[achievedMilestones.length - 1] || null;
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const getNextMilestone = () => {
+    const nextMilestone = milestones.find(m => userPoints < m.points);
+    return nextMilestone || milestones[milestones.length - 1];
   };
 
-  const handleInputChange = (e) => {
-    setNewEvent({
-      ...newEvent,
-      [e.target.name]: e.target.value
-    });
+  const calculateProgress = (milestone) => {
+    const prevMilestonePoints = milestones[milestones.indexOf(milestone) - 1]?.points || 0;
+    const progress = ((userPoints - prevMilestonePoints) / (milestone.points - prevMilestonePoints)) * 100;
+    return Math.min(Math.max(progress, 0), 100);
   };
-
-  const handleSubmit = async () => {
-    const db = getFirestore();
-
-    if (editingEvent) {
-      const eventRef = doc(db, 'upcomingEvents', 'upcoming', 'events', editingEvent.id);
-      await updateDoc(eventRef, newEvent);
-
-      setEventsData(prev => prev.map(e => (e.id === editingEvent.id ? { ...newEvent, id: editingEvent.id } : e)));
-    } else {
-      if (authType === "officer" || authType === "tech") {
-        const newEventRef = await addDoc(collection(db, 'upcomingEvents', 'upcoming', 'events'), newEvent);
-        setEventsData(prev => [{ ...newEvent, id: newEventRef.id }, ...prev]);
-      }
-    }
-
-    handleCloseModal();
-  };
-
-  const handleDelete = async (eventId) => {
-    const db = getFirestore();
-    await deleteDoc(doc(db, 'upcomingEvents', 'upcoming', 'events', eventId));
-    setEventsData(prev => prev.filter(e => e.id !== eventId));
-  };
-
-  const moveEventToPast = useCallback(async (event) => {
-    const db = getFirestore();
-    const pastEventsRef = doc(db, 'upcomingEvents', 'past', 'events', event.id);
-
-    // Add the event to the past document
-    await setDoc(pastEventsRef, event);
-
-    // Delete the event from the upcoming document
-    await deleteDoc(doc(db, 'upcomingEvents', 'upcoming', 'events', event.id));
-
-    setEventsData(prev => prev.filter(e => e.id !== event.id));
-  }, []);
-
-  useEffect(() => {
-    const checkAndMoveEvents = () => {
-      const currentDate = new Date();
-
-      eventsData.forEach(async (event) => {
-        const eventDate = new Date(event.date);
-        const eventDatePlusOne = new Date(eventDate);
-        eventDatePlusOne.setDate(eventDate.getDate() + 1);
-
-        if (eventDatePlusOne <= currentDate) {
-          await moveEventToPast(event);
-        }
-      });
-    };
-
-    checkAndMoveEvents();
-  }, [eventsData, moveEventToPast]);
-
-  const EventCard = ({ event, isPastEvent }) => (
-    <div className="bg-melon p-4 rounded-lg hover:scale-[1.02] ease-linear duration-150 shadow-md mb-4 relative group">
-      <h3 className="text-xl font-semibold text-dark-chocolate">{event.title}</h3>
-      <p className="text-sm text-red-violet">{event.date}</p>
-      <p className="text-gray-700">{event.description}</p>
-      {(authType === "officer" || authType === "tech") && !isPastEvent && (
-        <div className="absolute top-3 right-3 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-          <BiPencil 
-            className="text-dark-chocolate hover:text-red-violet cursor-pointer hover:scale-110 duration-200" 
-            size={20} 
-            onClick={() => handleOpenModal(event)} 
-          />
-          <BiTrash 
-            className="text-dark-chocolate hover:text-red-violet cursor-pointer hover:scale-110 duration-200" 
-            size={20} 
-            onClick={() => handleDelete(event.id)} 
-          />
-        </div>
-      )}
-    </div>
-  );
 
   return (
     <div className="flex flex-col items-center p-0 rounded-lg pb-0">
@@ -317,60 +205,60 @@ const ProfileCard = () => {
                   }}
                 >
                   <Tab label="Activity Points" value="1"/>
-                  <Tab label="Upcoming Events" value="2" />
+                  <Tab label="Milestones" value="2" />
                   <Tab label="Contact Info" value="3" />
                 </Tabs>
               </Box>
               <Box className="mt-4">
                 <TabPanel value="1">
-                <FormControl fullWidth variant="outlined" sx={{ mb: 2 }}>
-                  <InputLabel 
-                    id="leaderboard-type-label" 
-                    sx={{ 
-                      color: 'white', // Set the label color to white
-                      '&.Mui-focused': {
-                        color: 'white' // Ensure label stays white when focused
-                      },
-                    }}
-                  >
-                    Leaderboard Type
-                  </InputLabel>
-                  <Select
-                    labelId="leaderboard-type-label"
-                    id="leaderboard-type"
-                    value={leaderboardType}
-                    label="Leaderboard Type"
-                    onChange={(e) => setLeaderboardType(e.target.value)}
-                    sx={{
-                      color: 'white', // Text color inside the dropdown
-                      '.MuiOutlinedInput-notchedOutline': {
-                        borderColor: 'white', // Border color of the dropdown
-                      },
-                      '&:hover .MuiOutlinedInput-notchedOutline': {
-                        borderColor: 'white', // Keep border white on hover
-                      },
-                      '.MuiSvgIcon-root': {
-                        color: 'white', // Keep the dropdown arrow icon white
-                      },
-                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: 'white', // Keep border white when focused
-                      },
-                      '& .MuiSelect-select': {
-                        color: 'white', // Text color inside the dropdown (black for contrast)
-                      },
-                    }}
-                    MenuProps={{
-                      PaperProps: {
-                        sx: {
-                          color: 'black', // Text color of the dropdown menu items
+                  <FormControl fullWidth variant="outlined" sx={{ mb: 2 }}>
+                    <InputLabel 
+                      id="leaderboard-type-label" 
+                      sx={{ 
+                        color: 'white',
+                        '&.Mui-focused': {
+                          color: 'white'
+                        },
+                      }}
+                    >
+                      Leaderboard Type
+                    </InputLabel>
+                    <Select
+                      labelId="leaderboard-type-label"
+                      id="leaderboard-type"
+                      value={leaderboardType}
+                      label="Leaderboard Type"
+                      onChange={(e) => setLeaderboardType(e.target.value)}
+                      sx={{
+                        color: 'white',
+                        '.MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'white',
+                        },
+                        '&:hover .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'white',
+                        },
+                        '.MuiSvgIcon-root': {
+                          color: 'white',
+                        },
+                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'white',
+                        },
+                        '& .MuiSelect-select': {
+                          color: 'white',
+                        },
+                      }}
+                      MenuProps={{
+                        PaperProps: {
+                          sx: {
+                            color: 'black',
+                          }
                         }
-                      }
-                    }}
-                  >
-                    <MenuItem value="regular">Activity Points</MenuItem>
-                    <MenuItem value="written">Written Competitor Points</MenuItem>
-                  </Select>
-                </FormControl>
+                      }}
+                    >
+                      <MenuItem value="regular">Activity Points</MenuItem>
+                      <MenuItem value="written">Written Competitor Points</MenuItem>
+                    </Select>
+                  </FormControl>
 
                   <div className="space-y-3 mt-4">
                     {leaderboardType === 'regular' ? (
@@ -378,7 +266,8 @@ const ProfileCard = () => {
                         <div 
                           key={index} 
                           className={`flex justify-between p-2 ${item.email === user.email ? 'bg-red-400 bg-opacity-30' : 'bg-red-violet'} text-white rounded-lg 
-                          shadow-lg border border-dark-chocolate border-opacity-25`}>
+                          shadow-lg border border-dark-chocolate border-opacity-25`}
+                        >
                           <span><strong>{index + 1}</strong> - {item.name}</span>
                           <span>{item.activityPoints} pts</span>
                         </div>
@@ -388,21 +277,22 @@ const ProfileCard = () => {
                         <div 
                           key={index} 
                           className={`flex justify-between p-2 ${item.email === user.email ? 'bg-red-400 bg-opacity-30' : 'bg-red-violet'} text-white rounded-lg 
-                          shadow-lg border border-dark-chocolate border-opacity-25`}>
+                          shadow-lg border border-dark-chocolate border-opacity-25`}
+                        >
                           <span><strong>{index + 1}</strong> - {item.name}</span>
                           <span>{item.activityPoints} pts</span>
                         </div>
                       ))
                     )}
 
-                    {userPlacement && !leaderboardData.some(u => u.email === user.email) && (
+                    {userPlacement && (
                       <>
                         <div className="flex justify-center">
-                          <span>...</span>
+                          <span className="text-gray-300">• • •</span>
                         </div>
                         <div className="flex justify-between p-2 bg-red-400 bg-opacity-30 text-white rounded-lg shadow-lg
                          border border-dark-chocolate border-opacity-25">
-                          <span >{userPlacement.name}</span>
+                          <span><strong>{userPlacement.rank}</strong> - {userPlacement.name}</span>
                           <span>{userPlacement.activityPoints} pts</span>
                         </div>
                       </>
@@ -410,157 +300,108 @@ const ProfileCard = () => {
                   </div>
                 </TabPanel>
                 <TabPanel value="2">
-                  {(authType === "officer" || authType === "tech") && (
-                    <>
-                      <Button 
-                        variant="contained" 
-                        sx={{
-                          backgroundColor: '#B23A48', 
-                          color: 'white',
-                          '&:hover': {
-                            backgroundColor: '#B23A48',
-                          },
-                        }}  
-                        onClick={() => handleOpenModal()}
-                      >
-                        Create New Event
-                      </Button>
-                      <Modal
-                        open={isModalOpen}
-                        onClose={handleCloseModal}
-                        aria-labelledby="simple-modal-title"
-                        aria-describedby="simple-modal-description"
-                      >
-                        <Box
-                          sx={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            width: 400,
-                            bgcolor: 'background.paper',
-                            border: '2px solid #000',
-                            boxShadow: 24,
-                            p: 4,
-                            position: 'relative'
-                          }}
-                        >
-                          <IconButton
-                            aria-label="close"
-                            onClick={handleCloseModal}
-                            sx={{
-                              position: 'absolute',
-                              right: 13,
-                              top: 15,
-                              color: (theme) => theme.palette.grey[500],
-                            }}
-                          >
-                            <CloseIcon />
-                          </IconButton>
-                          <h2>{editingEvent ? "Edit Event" : "Create New Event"}</h2>
-                          <TextField
-                            fullWidth
-                            label="Title"
-                            name="title"
-                            value={newEvent.title}
-                            onChange={handleInputChange}
-                            margin="normal"
-                          />
-                          <TextField
-                            fullWidth
-                            label="Date"
-                            name="date"
-                            value={newEvent.date}
-                            onChange={handleInputChange}
-                            margin="normal"
-                            type="date"
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
-                          />
-                          <TextField
-                            fullWidth
-                            label="Description"
-                            name="description"
-                            value={newEvent.description}
-                            onChange={handleInputChange}
-                            margin="normal"
-                          />
-                          <Button variant="contained"
-                          sx={{
-                            backgroundColor: '#B23A48', 
-                            color: 'white',
-                            '&:hover': {
-                              backgroundColor: '#B23A48',
-                            },
-                          }} 
-                          color="primary" 
-                          onClick={handleSubmit}>
-                            {editingEvent ? "Update Event" : "Submit"}
-                          </Button>
-                        </Box>
-                      </Modal>
-                    </>
-                  )}
-                  
-                  <div className="space-y-6 mt-4 mb-6">
-                    {eventsData.length === 0 ? (
-                      <p>No upcoming events.</p>
-                    ) : (
-                      eventsData.map((event, index) => (
-                        <EventCard key={index} event={event} isPastEvent={false} />
-                      ))
-                    )}
-                  </div>
+                  <div className="space-y-6">
+                    {/* Current Status */}
+                    <div className="text-center mb-8">
+                      <h2 className="text-2xl font-bold text-white mb-2">
+                        Your Progress
+                      </h2>
+                      <p className="mb-1 text-lg">
+                        You have: <span className="font-bold">{userPoints} </span> points
+                      </p>
+                      {getNextMilestone() && getCurrentMilestone() !== getNextMilestone() && (
+                        <p className="text-gray-300 text-lg">
+                          Next milestone: {getNextMilestone().name} at {getNextMilestone().points} points
+                        </p>
+                      )}
+                    </div>
 
-                  <div className="space-y-6 mt-4">
-                    <Button 
-                      variant="contained" 
-                      sx={{
-                        backgroundColor: '#B23A48', 
-                        color: 'white',
-                        '&:hover': {
-                          backgroundColor: '#B23A48',
-                        },
-                      }} 
-                      onClick={handleTogglePastEvents}
-                    >
-                      {showPastEvents ? "Hide Past Events" : "Show Past Events"}
-                    </Button>
-                    {showPastEvents && (
-                      <>
-                        {pastEventsData.length === 0 ? (
-                          <p>No past events.</p>
-                        ) : (
-                          pastEventsData.map((event, index) => (
-                            <EventCard key={index} event={event} isPastEvent={true} />
-                          ))
-                        )}
-                      </>
-                    )}
+                    {/* Milestone Progress */}
+                    <div className="space-y-8">
+                      {milestones.map((milestone, index) => {
+                        const isAchieved = userPoints >= milestone.points;
+                        const isNext = !isAchieved && userPoints < milestone.points && 
+                          (!milestones[index - 1] || userPoints >= milestones[index - 1].points);
+                        const progress = calculateProgress(milestone);
+
+                        return (
+                          <div 
+                            key={milestone.name}
+                            className={`relative ${isAchieved ? 'opacity-100' : 'opacity-70'}`}
+                          >
+                            <div className="flex items-center mb-2">
+                              <div 
+                                className={`w-12 h-12 rounded-full flex items-center justify-center
+                                  ${isAchieved ? 'bg-opacity-100' : 'bg-opacity-50'}`}
+                                style={{ backgroundColor: milestone.color }}
+                              >
+                                <span className="text-dark-chocolate text-xl font-bold">
+                                  {isAchieved ? '✓' : milestone.points}
+                                </span>
+                              </div>
+                              <div className="ml-4 flex-grow">
+                                <div className="flex items-center justify-between">
+                                  <h3 className="text-white font-semibold">{milestone.name}</h3>
+                                  <p className="text-gray-300 text-sm">
+                                    {isAchieved ? (
+                                      <span className="text-green-300">
+                                        Achieved! 🎉 Congratulations!
+                                      </span>
+                                    ) : isNext ? (
+                                      `${milestone.points - userPoints} more points needed`
+                                    ) : (
+                                      ''
+                                    )}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Progress Bar */}
+                            <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                              <div
+                                className="h-full transition-all duration-500 ease-out rounded-full"
+                                style={{
+                                  width: `${progress}%`,
+                                  backgroundColor: milestone.color
+                                }}
+                              />
+                            </div>
+
+                            {/* Connector Line */}
+                            {index < milestones.length - 1 && (
+                              <div 
+                                className="absolute left-6 bottom-0 w-0.5 h-8 bg-gray-600"
+                                style={{ transform: 'translateY(100%)' }}
+                              />
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </TabPanel>
                 <TabPanel value="3">
-                <div className="space-y-3">
-                  <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                    <span><strong>President:</strong> <a href="mailto:sanghyuk.eric@gmail.com" target="_blank" rel="noopener noreferrer">sanghyuk.eric@gmail.com</a></span>
+                  <div className="space-y-3">
+                    <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
+                      <span><strong>President:</strong> <a href="mailto:sanghyuk.eric@gmail.com" target="_blank" rel="noopener noreferrer">sanghyuk.eric@gmail.com</a></span>
+                    </div>
+                    <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
+                      <span><strong>General Email:</strong> <a href="mailto:officers@hhsfbla.com" target="_blank" rel="noopener noreferrer">officers@hhsfbla.com</a></span>
+                    </div>
+                    <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
+                      <span><strong>Community Service:</strong> <a href="mailto:cs@hhsfbla.com" target="_blank" rel="noopener noreferrer">cs@hhsfbla.com</a></span>
+                    </div>
+                    <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
+                      <span><strong>American Enterprise:</strong> <a href="mailto:ae@hhsfbla.com" target="_blank" rel="noopener noreferrer">ae@hhsfbla.com</a></span>
+                    </div>
+                    <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
+                      <span><strong>Partnership with Business:</strong> <a href="mailto:pwb@hhsfbla.com" target="_blank" rel="noopener noreferrer">pwb@hhsfbla.com</a></span>
+                    </div>
+                    <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
+                      <span><strong>Software Ventures:</strong> <a href="mailto:sv@hhsfbla.com" target="_blank" rel="noopener noreferrer">sv@hhsfbla.com</a></span>
+                    </div>
                   </div>
-                  <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                    <span><strong>General Email:</strong> <a href="mailto:officers@hhsfbla.com" target="_blank" rel="noopener noreferrer">officers@hhsfbla.com</a></span>
-                  </div>
-                  <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                    <span><strong>Community Service:</strong> <a href="mailto:cs@hhsfbla.com" target="_blank" rel="noopener noreferrer">cs@hhsfbla.com</a></span>
-                  </div>
-                  <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                    <span><strong>American Enterprise:</strong> <a href="mailto:ae@hhsfbla.com" target="_blank" rel="noopener noreferrer">ae@hhsfbla.com</a></span>
-                  </div>
-                  <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                    <span><strong>Partnership with Business:</strong> <a href="mailto:pwb@hhsfbla.com" target="_blank" rel="noopener noreferrer">pwb@hhsfbla.com</a></span>
-                  </div>
-                  <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                    <span><strong>Software Ventures:</strong> <a href="mailto:sv@hhsfbla.com" target="_blank" rel="noopener noreferrer">sv@hhsfbla.com</a></span>
-                  </div>
-                </div>
                 </TabPanel>
               </Box>
             </TabContext>
