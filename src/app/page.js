@@ -330,8 +330,8 @@ export default function Home() {
             <h1 className="text-xl font-semibold">Competitions</h1>
             <p className="text-gray-300 mt-2 mb-[48px]">
               Homestead FBLA competes at Bay Section, States, and Nationals
-              every year. We currently have 27 consecutive Bay Section
-              Championships, 25 consecutive state championships, and 22 national
+              every year. We currently have 28 consecutive Bay Section
+              Championships, 26 consecutive state championships, and 22 national
               championships.
             </p>
 
@@ -350,21 +350,12 @@ export default function Home() {
           >
             <h1 className="text-xl font-semibold">Projects</h1>
             <p className="text-gray-300 mt-2 mb-9">
-              Homestead FBLA currently has 4 projects; American Enterprise, 
-              Community Service, Partnership with Business, and 
-              Software Ventures Project. Each of them aims to develop valuable business and 
+              Homestead FBLA has 2 projects; Community Service and 
+              Software Ventures. Each of them aims to develop valuable business and 
               leadership skills among students.
             </p>
 
             <div className="lg:grid-cols-4 lg:gap-x-3 gap-x-3 gap-y-3 lg:justify-between grid grid-cols-2 lg:gap-0">
-              <Link
-                href="/projects/american-enterprise"
-                className="border-2 border-watermelon-red hover:bg-watermelon-red ease-linear duration-200 flex justify-center cursor-pointer p-3 
-                  text-[15px] rounded-xl"
-              >
-                AE
-              </Link>
-
               <Link
                 href="/projects/community-service"
                 className="border-2 border-watermelon-red hover:bg-watermelon-red ease-linear duration-200 cursor-pointer flex justify-center p-3 
@@ -372,15 +363,6 @@ export default function Home() {
               >
                 CS
               </Link>
-
-              <Link
-                href="/projects/partnership-with-business"
-                className="border-2 border-watermelon-red hover:bg-watermelon-red ease-linear duration-200 flex justify-center cursor-pointer p-3 
-                  text-[15px] rounded-xl"
-              >
-                PWB
-              </Link>
-
               <Link
                 href="/projects/software-ventures"
                 className="border-2 border-watermelon-red hover:bg-watermelon-red ease-linear duration-200 flex justify-center cursor-pointer p-3 
@@ -390,7 +372,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-
           <div
             className="rounded-lg border-2 border-melon bg-melon bg-opacity-30 
               px-8 py-6 pb-9">
