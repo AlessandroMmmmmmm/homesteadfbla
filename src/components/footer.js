@@ -15,12 +15,7 @@ const navigation = {
     // { name: "Media", href: "/media" },
   ],
   projects: [
-    { name: "American Enterprise", href: "/projects/american-enterprise" },
     { name: "Community Service", href: "/projects/community-service" },
-    {
-      name: "Partnership with Business",
-      href: "/projects/partnership-with-business",
-    },
     { name: "Software Ventures", href: "/projects/software-ventures" },
   ],
   legal: [

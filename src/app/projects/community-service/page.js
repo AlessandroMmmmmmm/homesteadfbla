@@ -33,9 +33,11 @@ export default function CommunityService() {
         <h1 className="text-3xl font-bold">Community Service</h1>
         {user ? (
           <p className="mt-3 text-lg">
+            Coming Soon
           </p>
         ) : (
           <p className="mt-3 text-lg">
+            Coming Soon
           </p>
         )}
       </div>
