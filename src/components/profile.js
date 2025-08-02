@@ -69,11 +69,11 @@ const ProfileCard = () => {
     const db = getFirestore();
     
     // Get all users ordered by points to calculate rank
-    const allUsersQuery = query(collection(db, 'activityPoints'), orderBy('activityPoints', 'desc'));
+    const allUsersQuery = query(collection(db, 'activityPoints2026'), orderBy('activityPoints2026', 'desc'));
     const allUsersSnapshot = await getDocs(allUsersQuery);
     const allUsers = allUsersSnapshot.docs.map(doc => ({
       name: doc.data().name,
-      activityPoints: doc.data().activityPoints,
+      activityPoints: doc.data().activityPoints2026,
       email: doc.data().email
     }));
 
@@ -96,11 +96,11 @@ const ProfileCard = () => {
     const db = getFirestore();
     
     // Get all users ordered by points to calculate rank
-    const allUsersQuery = query(collection(db, 'writtenActivityPoints'), orderBy('activityPoints', 'desc'));
+    const allUsersQuery = query(collection(db, 'writtenActivityPoints'), orderBy('activityPoints2026', 'desc'));
     const allUsersSnapshot = await getDocs(allUsersQuery);
     const allUsers = allUsersSnapshot.docs.map(doc => ({
       name: doc.data().name,
-      activityPoints: doc.data().activityPoints,
+      activityPoints: doc.data().activityPoints2026,
       email: doc.data().email
     }));
 
@@ -131,12 +131,12 @@ const ProfileCard = () => {
       if (!user) return;
       const db = getFirestore();
       const userPointsRef = query(
-        collection(db, 'activityPoints'),
+        collection(db, 'activityPoints2026'),
         where('email', '==', user.email)
       );
       const pointsSnapshot = await getDocs(userPointsRef);
       if (!pointsSnapshot.empty) {
-        setUserPoints(pointsSnapshot.docs[0].data().activityPoints || 0);
+        setUserPoints(pointsSnapshot.docs[0].data().activityPoints2026 || 0);
       }
     };
 

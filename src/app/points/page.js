@@ -36,7 +36,7 @@ export default function PointsPage() {
     
     if (user) {
       const db = getFirestore();
-      const userRef = doc(db, 'activityPoints', user.uid);
+      const userRef = doc(db, 'activityPoints2026', user.uid);
       const writtenUserRef = doc(db, 'writtenActivityPoints', user.uid);
       const userData = doc(db, 'users', user.displayName);
       const userDataSnap = await getDoc(userData);
@@ -134,7 +134,7 @@ export default function PointsPage() {
     if (user) {
       const db = getFirestore();
       const userRef = pointType === 'regular'
-        ? doc(db, 'activityPoints', user.uid)
+        ? doc(db, 'activityPoints2026', user.uid)
         : doc(db, 'writtenActivityPoints', user.uid); // Adjust for written activity points
   
       try {
@@ -145,7 +145,7 @@ export default function PointsPage() {
           if (!userSnap.exists()) {
             transaction.set(userRef, {
               name: user.displayName,
-              activityPoints: 0,
+              activityPoints2026: 0,
               usedCodes: [],
               email: user.email,
             });
@@ -160,7 +160,7 @@ export default function PointsPage() {
   
           // Update points and mark code as used
           transaction.update(userRef, {
-            activityPoints: increment(pointsValue),
+            activityPoints2026: increment(pointsValue),
             usedCodes: [...usedCodes, secretCode],
           });
         });
