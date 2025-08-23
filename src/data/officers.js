@@ -1,7 +1,7 @@
 const officers = {
     "exec": [
         {
-            "name": "Sanghyuk Ko",
+            "name": "Dorie Lee",
             "position": "President",
             "bio": "HEY! I'm Eric, and I'm super excited to serve as your President this year! A few 	\"fun\"  facts about me: I'm allergic to watermelon, I enjoy watching K-Drama (yes, I'm Korean), and I love FBLA (duh)! If you ever need anything, always reach out to me, and I would be happy to talk :) See you soon!",
             "quote": "\"Sometimes it takes a wrong turn to get to the right place\"",
