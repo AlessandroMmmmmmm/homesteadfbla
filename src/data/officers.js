@@ -27,32 +27,28 @@ const officers = {
     ],
     "ops": [
         {
-            "name": "Ian Yoon",
+            "name": "Arhan Chakravarthy",
             "position": "VP Member Relations",
-            "bio": "Hey everyone, my name is Ian Yoon and I will be your Vice President of Member Relations for this school year! I've been a long time member of FBLA, but an even longer time boy scout. I love to go camping and backpacking with friends ass much as possible. If you ever see me on campus, feel free to say hi. Looking forward to meeting you all!",
-            "quote": "\"The heart of the cards guides me\" -Yugioh",
-            "image": "Ian",
+            "bio": "Hey guys, I'm Arhan and I'm really looking forward to being this years VP of Member Relations! During my free time I love playing tennis, watching random shows, and of course watching reels. If you ever see me never be afraid to say hi, and I look forward to meeting y'all!",
+            "image": "Arhan",
+        },
+        {
+            "name": "Chloe Wang",
+            "position": "VP Public Relation",
+            "bio": "Hi! I'm Chloe, and I'm happy to be your VP of Public Relations for this year. I love discovering and listening to music (just found out I quite enjoy live electronic music) and knowing random facts. Feel free to reach out about anything!",
+            "image": "ChloeW",
+        },
+        {
+            "name": "Meredith Tan",
+            "position": "Treasurer",
+            "bio": "Hey guys! I'm Meredith and I'm so excited to be your Treasurer this year! In my free time, I like baking bread, playing volleyball, and biking around the neighborhood. Feel free to reach out anytime with questions, or if you have fun fundraiser ideas!",
+            "image": "",
         },
         {
             "name": "Vincent Wang",
-            "position": "VP Public Relation",
-            "bio": "Hey everyone! I'm Vincent and I'm your Vice President of Public Relations for this school year! In my free time you can find me on the tennis courts, painting, or listening to music (Benson Boone is objectively the best artist out there). Given my role as public relations, it's quite fitting that I love to yap and talk with people. If you see me around, please wave or say hi. I'm excited to meet all of you this year!",
-            "quote": "\"Sometimes I wonder if all this is happening because I didn't forward that email to 10 people\"",
-            "image": "Vincent",
-        },
-        {
-            "name": "Suprathik Malepati",
-            "position": "Treasurer",
-            "bio": "Hello everyone! My name is Supra and I am going to be your Treasurer for the 24-25 school year. Outside of FBLA, I enjoy watching movies, horseback riding, and dancing. Feel free to reach out to me if you have any questions, or if you just wanna chat. Looking forward to meeting you all!",
-            "quote": "\"It is what it is\"",
-            "image": "Supra",
-        },
-        {
-            "name": "Bhavya Krishnan",
             "position": "Ex-Officio / Bay Section President",
-            "bio": "Hey guys, my name is Bhavya and I'm extremely excited to serve as your Bay Section President and Homestead Ex-Officio. When I'm not at school, I love drawing, listening to podcasts, and playing with my cat! If you see me around, please don't hesistate to say hi.",
-            "quote": "\"There is no sunset worth waking me up for.\"",
-            "image": "Bhavya",
+            "bio": "",
+            "image": "Vincent",
         }
     ],
     "comps": [
