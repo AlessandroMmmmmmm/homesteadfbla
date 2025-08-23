@@ -18,12 +18,12 @@ const officers = {
             "bio": "Hello yall, my name is Smyan Shanbhag and I'm your EVP of Competitions which means I oversee everything that has to do with competitions. I love sports, guitar, music, and the outdoors. Dont hesitate to hit me up if you have any questions relating to competitions whatsoever.\"",
             "image": "Smyan",
         }
-        // {
-        //     "name": "Henry Hu",
-        //     "position": "Executive VP - Conferences",
-        //     "bio": "Hello. I'm Henry, and I'm the EVP of Conferences. I'm responsible for conference planning and logistics. In addition, I register members for national membership and manage club finances. Please email any questions to henryhu21108@gmail.com.\"",
-        //     "image": "Smyan",
-        // }
+        {
+            "name": "Henry Hu",
+            "position": "Executive VP - Conferences",
+            "bio": "Hello. I'm Henry, and I'm the EVP of Conferences. I'm responsible for conference planning and logistics. In addition, I register members for national membership and manage club finances. Please email any questions to henryhu21108@gmail.com.\"",
+            "image": "Henry",
+        }
     ],
     "ops": [
         {
