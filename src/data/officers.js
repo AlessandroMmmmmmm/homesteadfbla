@@ -3,25 +3,25 @@ const officers = {
         {
             "name": "Dorie Lee",
             "position": "President",
-            "bio": "Hey guys! I'm Dorie, and I'm so excited to serve as your President this year! I love designing, listening to music, watching cdramas, and getting boba. If you ever need anything, please feel free to reach out! Can't wait to meet you all :)\"",
+            "bio": "Hey guys! I'm Dorie, and I'm so excited to serve as your President this year! I love designing, listening to music, watching cdramas, and getting boba. If you ever need anything, please feel free to reach out! Can't wait to meet you all :)",
             "image": "Dorie",
         },
         {
             "name": "Jane Ser",
             "position": "Executive VP - Development",
-            "bio": "Hi guys, I'm Jane and I will be serving as the EVP of Development for the upcoming school year! I like watching people perform music and sipping boba tea a little too often to be healthy. Hope to get to meet some of you soon!\"",
+            "bio": "Hi guys, I'm Jane and I will be serving as the EVP of Development for the upcoming school year! I like watching people perform music and sipping boba tea a little too often to be healthy. Hope to get to meet some of you soon!",
             "image": "Jane",
         },
         {
             "name": "Smyan Shanbhag",
             "position": "Executive VP - Competitions",
-            "bio": "Hello yall, my name is Smyan Shanbhag and I'm your EVP of Competitions which means I oversee everything that has to do with competitions. I love sports, guitar, music, and the outdoors. Dont hesitate to hit me up if you have any questions relating to competitions whatsoever.\"",
+            "bio": "Hello yall, my name is Smyan Shanbhag and I'm your EVP of Competitions which means I oversee everything that has to do with competitions. I love sports, guitar, music, and the outdoors. Dont hesitate to hit me up if you have any questions relating to competitions whatsoever.",
             "image": "Smyan",
-        }
+        },
         {
             "name": "Henry Hu",
             "position": "Executive VP - Conferences",
-            "bio": "Hello. I'm Henry, and I'm the EVP of Conferences. I'm responsible for conference planning and logistics. In addition, I register members for national membership and manage club finances. Please email any questions to henryhu21108@gmail.com.\"",
+            "bio": "Hello. I'm Henry, and I'm the EVP of Conferences. I'm responsible for conference planning and logistics. In addition, I register members for national membership and manage club finances. Please email any questions to henryhu21108@gmail.com.",
             "image": "Henry",
         }
     ],
