@@ -79,87 +79,74 @@ const officers = {
     ],
     "projects": {
         "sv": [
-
             {
-                "name": "Alessandro Montesi",
-                "position": "Software Ventures Chair",
-                "bio": "Hi guys! I am Alessandro, and I am proud to be one of your amazing tech chairs for this school year! I am super excited to be teaching you all about tech this year, and can't wait to meet you guys. For fun I adore eating good food, playing tennis, and listening to white girl music (the best kind of music). I am always open to questions and talking, so don't be scared to hit me up!",
-                "quote": "\"The man who asks a question is a fool for a minute, the man who does not ask is a fool for life\" ",
-                "image": "Alessandro",
+                "name": "Mishti Doshi",
+                "position": "Technology Chair",
+                "bio": "Hey there! I'm Mishti and I'm one of your tech chairs this year. During my free time, I love doing archery, playing video games, and reading- if you have any book recommendations let me know :). I'm looking forward to meeting you all!",
+                "image": "default",
             },
             {
-                "name": "Aaron Huang",
-                "position": "Software Ventures Chair",
-                "bio": "Hi y'all! I'm Aaron and I will be one of your proud tech chairs for this school year along with Alessandro! You guys aren't ready for all the cool tech stuff we are about to teach you guys this year. Outside of FBLA I also really enjoy playing tennis, playing tennis, and playing tennis. Oh yeah and did I mention I also love playing tennis. And if your ever want to talk with me about anything, come talk with me, I love talking!",
-                "quote": "\"True sigmas do tech\"",
-                "image": "Aaron",
+                "name": "Meghna Shenoy",
+                "position": "Technology Chair",
+                "bio": "Hey guys! I'm Meghna and I'll be one of your tech chairs this year. I love all things food, taking pics of the sunset (50% of my camera roll), dance, and spending time with my dog Enzo. I'm super excited to meet you all, so if you see me around say hi!!",
+                "image": "default",
             }
         ],
-       
-        "ae": [
+        "comp": [
             {
-                "name": "Sravika Nemani",
-                "position": "American Enterprise Chair",
-                "bio": "Hey everyone! My name is Sravika and I am one of the AE chairs for the 24-25 school year. In my free time, I like to dance, paint, listen to music while walking, and doom-scroll (which may or may not be a bad thing). If you see me around feel free to say hi!!!",
-                "quote": "\"Do it for the plot\"",
-                "image": "Sravika",
+                "name": "Dhriti Ganesh",
+                "position": "Competitions Chair",
+                "bio": "",
+                "image": "default",
             },
             {
-                "name": "Leah Pien",
+                "name": "Jolene Luong",
                 "position": "American Enterprise Chair",
-                "bio": "Hey everyone! I'm Leah, one of the AE chairs for the 24-25 school year. In my free time, I love playing tennis, skiing, and getting boba with my friends. Feel free to reach out to me if you have any questions and I'm looking forward to meeting everyone!!",
-                "quote": "\"One step at a time\"",
-                "image": "Leah",
+                "bio": "",
+                "image": "default",
             }
         ],
         "cs": [
             {
-                "name": "Arhan Chakravarthy",
+                "name": "Advay Ranade",
                 "position": "Community Service Chair",
-                "bio": "Hey guys, I'm Arhan and I can't wait to serve as one your Community Service Project Chairs this year! During my free time I love playing tennis (im better than alessandro), watching random shows (Suits is of course the best one), and of course watching reels. If you ever see me never be afraid to say hi, and I look forward to meeting y'all!",
-                "quote": "\"Laziness is nothing more than the habit of resting before you get tired.\"",
-                "image": "Arhan",
+                "bio": "Wsg this is Advay and I'm excited to be one of your Community Service Project chairs this year. In my free time, I like to watch Suits, swim, and run. Lmk if yall have any questions and feel free to come up to me anytime if you do have one. I can't wait meet everyone at the community service PMs, so see yall there!",
+                "image": "default",
             },
             {
-                "name": "Samik Thakur",
+                "name": "Muhan Yang",
                 "position": "Community Service Chair",
-                "bio": "Hi guys, I'm Samik and I'm very excited to be one of your Community Service Project Chairs this year! Fun facts about me are I have been playing competitive soccer most of my life, I enjoy listening to music, and I love to watch Bollywood movies in my free time (my favorite being taare zameen par). So if you want to chat about Bollywood or just want to talk in general feel free to say hi!",
-                "quote": "\"The key to a happy life is to accept that you are never actually in control\" - Irrfan Khan",
-                "image": "Samik",
+                "bio": "Hi everyone! I'm Muhan, super excited to be one of your Community Service chairs this year. I love going on rollercoasters and anything that spikes my adrenaline. My favorite TV shows are \"Alice in Borderland\" and \"Attack on Titan\". I like to drink boba and matcha with my labubu so hit me up anytime you have any questions or concerns!",
+                "image": "default",
             }
         ],
-        "pwb": [
+        "ce": [
             {
-                "name": "Serena Fanse",
-                "position": "Partnership with Business Chair",
-                "bio": "Hi everyone! My name is Serena and I am super excited to be one of your Partnership with Business chairs. In my free time I love to read, watch tv, and listen to music. If you ever have any questions or just want to chat feel free to come up and talk. Looking forward to meeting everyone!",
-                "quote": "\"either you run the day or the day runs you\"",
-                "image": "Serena",
+                "name": "Chelsea Lau",
+                "position": "Community Engagement Chair",
+                "bio": "Hey everyone, my name is Chelsea! I am so delighted to be one of your Community Engagement Chairs this year! In my free time, I love playing tennis, practicing guitar, and hanging out with my dog Hugo. If you have any questions, don't be afraid to ask me!",
+                "image": "default",
             },
             {
-                "name": "Anjay Parthasarathy",
-                "position": "Partnership with Business Chair",
-                "bio": "Hi guys! My name is Anjay and I can't wait to serve as one of the Partnership with Business chairs this year. Some fun facts about me are that I was born on Friday the thirtheenth (ooh spooky) and I do track outside of FBLA. When I'm not presenting or running, I love to doodle--and you'll find that all of my notebooks are filled with mindless drawings that make up who I am. If you ever have any questions or just want to say hi, I'm always open for a fun conversation! ",
-                "quote": "\"One day or day one\"",
-                "image": "Anjay",
+                "name": "Amol Agrawal",
+                "position": "Community Engagement Chair",
+                "bio": "Whats good yall im Amol and I'll be one of your Community Engagement chairs this year. I love swimming, coding, and playing video games. Im down to answer any of yalls questions and i cant wait to meet all of you at our pms.",
+                "image": "default",
             }
         ],
         
 
         "ml": [
             {
-                "name": "Noah Sato",
+                "name": "Sravika Nemani",
                 "position": "Middle Level Chair",
-                "bio": "Hey guys! My name is Noah Sato and I am going to be your Middle Level chair this year. In my free time I enjoy playing tennis and golf as well as hanging out with my friends. I'm looking forward to meeting you all this year!",
-                "quote": "\"Whatever you are, be a good one\" -Abraham Lincoln",
-                "image": "Noah",
+                "bio": "",
+                "image": "Sravika",
             },
             {
-                "name": "Aayushma Adhikari",
+                "name": "Suprathik Malepati",
                 "position": "Middle Level Chair",
-                "bio": "Hey everyone! My name is Aayushma Adhikari and I am going to be one of your Middle Level Chairs this year. Outside of FBLA I love to garden (attempt to keep my plants alive), bingewatch TV shows (currently The Good Place), and get sweet treats with friends. Unless you're a gen alpha middle schooler you proabably won't get to witness my amazing teaching skills but I still love to talk so reach out anytime!",
-                "quote": "\"Pobody's nerfect\"",
-                "image": "Aayushma",
+                "bio": "",
             }
         ],
 
