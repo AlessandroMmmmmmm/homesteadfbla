@@ -33,12 +33,12 @@ export default function Officers() {
             {/* <h1 className="text-4xl font-bold my-10">Meet our Team!</h1> */}
 
             
-            <div className="my-10 bg-blue-600 bg-opacity-20 border-2 rounded-lg  border-blue-600 px-8 py-6">  
-                <h2 className="text-blue-600 text-2xl font-bold mb-6">Executive Team</h2>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    {officers.exec.map((officer) => (
-                    <OfficerCard key={officer.name} {...officer} />
-                    ))}
+            <div className="my-10 bg-blue-600 bg-opacity-20 border-2 rounded-lg border-blue-600 px-8 py-6">  
+              <h2 className="text-blue-600 text-2xl font-bold mb-6">Executive Team</h2>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  {officers.exec.map((officer) => (
+                  <OfficerCard key={officer.name} {...officer} />
+                  ))}
                 </div>
             </div>
             
