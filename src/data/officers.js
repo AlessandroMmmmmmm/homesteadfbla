@@ -42,7 +42,7 @@ const officers = {
             "name": "Meredith Tan",
             "position": "Treasurer",
             "bio": "Hey guys! I'm Meredith and I'm so excited to be your Treasurer this year! In my free time, I like baking bread, playing volleyball, and biking around the neighborhood. Feel free to reach out anytime with questions, or if you have fun fundraiser ideas!",
-            "image": "",
+            "image": "default",
         },
         {
             "name": "Vincent Wang",
