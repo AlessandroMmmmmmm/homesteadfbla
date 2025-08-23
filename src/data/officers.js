@@ -147,6 +147,7 @@ const officers = {
                 "name": "Suprathik Malepati",
                 "position": "Middle Level Chair",
                 "bio": "",
+                "image": "Supra",
             }
         ],
 
