@@ -101,7 +101,7 @@ const officers = {
             },
             {
                 "name": "Jolene Luong",
-                "position": "American Enterprise Chair",
+                "position": "Competitions Chair",
                 "bio": "",
                 "image": "default",
             }
