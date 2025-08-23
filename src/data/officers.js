@@ -3,23 +3,26 @@ const officers = {
         {
             "name": "Dorie Lee",
             "position": "President",
-            "bio": "HEY! I'm Eric, and I'm super excited to serve as your President this year! A few 	\"fun\"  facts about me: I'm allergic to watermelon, I enjoy watching K-Drama (yes, I'm Korean), and I love FBLA (duh)! If you ever need anything, always reach out to me, and I would be happy to talk :) See you soon!",
-            "quote": "\"Sometimes it takes a wrong turn to get to the right place\"",
-            "image": "Eric",
+            "bio": "Hey guys! I'm Dorie, and I'm so excited to serve as your President this year! I love designing, listening to music, watching cdramas, and getting boba. If you ever need anything, please feel free to reach out! Can't wait to meet you all :)\"",
+            "image": "Dorie",
         },
         {
-            "name": "Chloe Kim",
+            "name": "Jane Ser",
             "position": "Executive VP - Development",
-            "bio": "Hi FBLA! My name is Chloe, and I will be your EVP of Development this year. I like to stay up watching movies or take a walk around the neighborhood. Most of the times you can find me either staying inside hopping on calls with friends or going to the beach! This year, I'll be working with our four lovely projects, so I hope to see you around at meetings and events!",
-            "quote": "\"All right! We did not die today. I call that an unqualified success\"",
-            "image": "ChloeK",
+            "bio": "Hi guys, I'm Jane and I will be serving as the EVP of Development for the upcoming school year! I like watching people perform music and sipping boba tea a little too often to be healthy. Hope to get to meet some of you soon!\"",
+            "image": "Jane",
         },
+        {
+            "name": "Smyan Shanbhag",
+            "position": "Executive VP - Competitions",
+            "bio": "Hello yall, my name is Smyan Shanbhag and I'm your EVP of Competitions which means I oversee everything that has to do with competitions. I love sports, guitar, music, and the outdoors. Dont hesitate to hit me up if you have any questions relating to competitions whatsoever.\"",
+            "image": "Smyan",
+        }
         {
             "name": "Henry Hu",
-            "position": "Executive VP - Operations",
-            "bio": "Hey yall! My name's Henry and I'm going to be your EVP of Operations this year. In my free time you can find me in a pool somewhere, watching Better Call Saul, or playing with my very, very energetic dog. If you have any questions (or if you want any notes for Law) just hmu! =D",
-            "quote": "\"It's all good man\"",
-            "image": "Henry",
+            "position": "Executive VP - Conferences",
+            "bio": "Hello. I'm Henry, and I'm the EVP of Conferences. I'm responsible for conference planning and logistics. In addition, I register members for national membership and manage club finances. Please email any questions to henryhu21108@gmail.com.\"",
+            "image": "Smyan",
         }
     ],
     "ops": [
