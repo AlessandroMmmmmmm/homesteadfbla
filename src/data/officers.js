@@ -36,13 +36,13 @@ const officers = {
             "name": "Chloe Wang",
             "position": "VP Public Relation",
             "bio": "Hi! I'm Chloe, and I'm happy to be your VP of Public Relations for this year. I love discovering and listening to music (just found out I quite enjoy live electronic music) and knowing random facts. Feel free to reach out about anything!",
-            "image": "ChloeW",
+            "image": "Chloe",
         },
         {
             "name": "Meredith Tan",
             "position": "Treasurer",
             "bio": "Hey guys! I'm Meredith and I'm so excited to be your Treasurer this year! In my free time, I like baking bread, playing volleyball, and biking around the neighborhood. Feel free to reach out anytime with questions, or if you have fun fundraiser ideas!",
-            "image": "default",
+            "image": "Meredith",
         },
         {
             "name": "Vincent Wang",
@@ -62,7 +62,7 @@ const officers = {
             "name": "Sufee Kathane",
             "position": "VP of Case Competitions",
             "bio": "Hi everyone! I'm Sufee, and I'm be serving as your VP of Case Studies this year. I love reading, fencing, and (speed playing) board games. If you'd ever like to talk about case studies, school, or anything, let's chat!",
-            "image": "default",
+            "image": "Sufee",
         },
         {
             "name": "Leah Pien",
@@ -83,13 +83,13 @@ const officers = {
                 "name": "Mishti Doshi",
                 "position": "Technology Chair",
                 "bio": "Hey there! I'm Mishti and I'm one of your tech chairs this year. During my free time, I love doing archery, playing video games, and reading- if you have any book recommendations let me know :). I'm looking forward to meeting you all!",
-                "image": "default",
+                "image": "Mishti",
             },
             {
                 "name": "Meghna Shenoy",
                 "position": "Technology Chair",
                 "bio": "Hey guys! I'm Meghna and I'll be one of your tech chairs this year. I love all things food, taking pics of the sunset (50% of my camera roll), dance, and spending time with my dog Enzo. I'm super excited to meet you all, so if you see me around say hi!!",
-                "image": "default",
+                "image": "Meghna",
             }
         ],
         "comp": [
@@ -97,13 +97,13 @@ const officers = {
                 "name": "Dhriti Ganesh",
                 "position": "Competitions Chair",
                 "bio": "",
-                "image": "default",
+                "image": "Dhriti",
             },
             {
                 "name": "Jolene Luong",
                 "position": "Competitions Chair",
                 "bio": "",
-                "image": "default",
+                "image": "Jolene",
             }
         ],
         "cs": [
@@ -111,13 +111,13 @@ const officers = {
                 "name": "Advay Ranade",
                 "position": "Community Service Chair",
                 "bio": "Wsg this is Advay and I'm excited to be one of your Community Service Project chairs this year. In my free time, I like to watch Suits, swim, and run. Lmk if yall have any questions and feel free to come up to me anytime if you do have one. I can't wait meet everyone at the community service PMs, so see yall there!",
-                "image": "default",
+                "image": "Advay",
             },
             {
                 "name": "Muhan Yang",
                 "position": "Community Service Chair",
                 "bio": "Hi everyone! I'm Muhan, super excited to be one of your Community Service chairs this year. I love going on rollercoasters and anything that spikes my adrenaline. My favorite TV shows are \"Alice in Borderland\" and \"Attack on Titan\". I like to drink boba and matcha with my labubu so hit me up anytime you have any questions or concerns!",
-                "image": "default",
+                "image": "Muhan",
             }
         ],
         "ce": [
@@ -125,13 +125,13 @@ const officers = {
                 "name": "Chelsea Lau",
                 "position": "Community Engagement Chair",
                 "bio": "Hey everyone, my name is Chelsea! I am so delighted to be one of your Community Engagement Chairs this year! In my free time, I love playing tennis, practicing guitar, and hanging out with my dog Hugo. If you have any questions, don't be afraid to ask me!",
-                "image": "default",
+                "image": "Chelsea",
             },
             {
                 "name": "Amol Agrawal",
                 "position": "Community Engagement Chair",
                 "bio": "Whats good yall im Amol and I'll be one of your Community Engagement chairs this year. I love swimming, coding, and playing video games. Im down to answer any of yalls questions and i cant wait to meet all of you at our pms.",
-                "image": "default",
+                "image": "Amol",
             }
         ],
         
