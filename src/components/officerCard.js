@@ -39,16 +39,14 @@ export default function OfficerCard({ name, position, bio, quote, image }) {
                         {position}
                     </div>
                 </figcaption>
-              
-                 <blockquote>
+                <blockquote>
                     <p className="text-md">
-                      {bio}
+                        {bio}
                     </p>
                 </blockquote>
-                
                 <blockquote>
                     <p className="text-sm font-light italic">
-                       "{quote}"
+                        {quote}
                     </p>
                 </blockquote>
             </div>
