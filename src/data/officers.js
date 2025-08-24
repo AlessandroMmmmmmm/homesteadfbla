@@ -90,6 +90,7 @@ const officers = {
                 "position": "Technology Chair",
                 "bio": "Hey guys! I'm Meghna and I'll be one of your tech chairs this year. I love all things food, taking pics of the sunset (50% of my camera roll), dance, and spending time with my dog Enzo. I'm super excited to meet you all, so if you see me around say hi!!",
                 "image": "Meghna",
+                "quote": "‘Can’t wait to make this year amazing with all of you!’",
             }
         ],
         "comp": [
