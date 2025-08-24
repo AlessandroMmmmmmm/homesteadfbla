@@ -46,7 +46,7 @@ export default function OfficerCard({ name, position, bio, quote, image }) {
                 </blockquote>
                 <blockquote>
                     <p className="text-sm font-light italic">
-                        {"quote"}
+                       "{quote}"
                     </p>
                 </blockquote>
             </div>
