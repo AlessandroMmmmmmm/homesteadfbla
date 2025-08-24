@@ -94,7 +94,7 @@ const officers = {
         ],
         "comp": [
             {
-                "name": "Dhriti Ganesh",
+                "name": "Dhriti Ganesh", 
                 "position": "Competitions Chair",
                 "bio": "",
                 "image": "Dhriti",
