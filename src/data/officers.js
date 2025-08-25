@@ -35,6 +35,7 @@ const officers = {
             "position": "VP Member Relations",
             "bio": "Hey guys, I'm Arhan and I'm really looking forward to being this years VP of Member Relations! During my free time I love playing tennis, watching random shows, and of course watching reels. If you ever see me never be afraid to say hi, and I look forward to meeting y'all!",
             "image": "Arhan",
+            "quote": "The safest way to double your money is to fold it over and put it in your pocket",
            
         },
         {
