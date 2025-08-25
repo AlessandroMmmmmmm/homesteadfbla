@@ -54,7 +54,7 @@ const officers = {
         {
             "name": "Vincent Wang",
             "position": "Ex-Officio / Bay Section President",
-            "bio": "",
+            "bio": "Whats cookin' good lookin'. I'm Vincent, and I'm happy to serve as your ex-officio and Bay Section President this year. My job as ex-officio is to help out anyone who needs it, and that includes members like you. So, feel free to hit me up for any questions or help with competitions, and feel free to say hi when you see me!",
             "image": "Vincent",
             "quote": "There are two types of people in this world: 1) those who can extrapolate from existing data",
         }
@@ -96,26 +96,30 @@ const officers = {
                 "position": "Technology Chair",
                 "bio": "Hey there! I'm Mishti and I'm one of your tech chairs this year. During my free time, I love doing archery, playing video games, and reading- if you have any book recommendations let me know :). I'm looking forward to meeting you all!",
                 "image": "Mishti",
+                "quote": "Embrace the chaos; it often leads to the most beautiful outcomes.",
             },
             {
                 "name": "Meghna Shenoy",
                 "position": "Technology Chair",
                 "bio": "Hey guys! I'm Meghna and I'll be one of your tech chairs this year. I love all things food, taking pics of the sunset (50% of my camera roll), dance, and spending time with my dog Enzo. I'm super excited to meet you all, so if you see me around say hi!!",
                 "image": "Meghna",
+                "quote": "If you reach the end of your rope, tie a knot in it and hang on.",
             }
         ],
         "comp": [
             {
                 "name": "Dhriti Ganesh", 
                 "position": "Competitions Chair",
-                "bio": "",
+                "bio": "Hi guys! I'm Dhriti, one of your competition chairs for this school year. I love coconuts, Jolene, and hanging out with my friends :) I’m super excited to help you all explore different events, prepare for competitions, and make the most out of FBLA!",
                 "image": "Dhriti",
+                "quote": "Whatever life throws at you, duck and let it hit someone else.",
             },
             {
                 "name": "Jolene Luong",
                 "position": "Competitions Chair",
-                "bio": "",
+                "bio": "hey everyone! Im Jolene and I'm excited to be one of the competition chairs this year. I love traveling, trying new foods, and listening to music. Please feel free to reach out if you need anything. So excited to meet everyone! ",
                 "image": "Jolene",
+                "quote": "Little by little",
             }
         ],
         "cs": [
@@ -124,12 +128,14 @@ const officers = {
                 "position": "Community Service Chair",
                 "bio": "Wsg this is Advay and I'm excited to be one of your Community Service Project chairs this year. In my free time, I like to watch Suits, swim, and run. Lmk if yall have any questions and feel free to come up to me anytime if you do have one. I can't wait meet everyone at the community service PMs, so see yall there!",
                 "image": "Advay",
+                "quote": "Tough times never last, but tough people do",
             },
             {
                 "name": "Muhan Yang",
                 "position": "Community Service Chair",
                 "bio": "Hi everyone! I'm Muhan, super excited to be one of your Community Service chairs this year. I love going on rollercoasters and anything that spikes my adrenaline. My favorite TV shows are \"Alice in Borderland\" and \"Attack on Titan\". I like to drink boba and matcha with my labubu so hit me up anytime you have any questions or concerns!",
                 "image": "Muhan",
+                "quote": "It's ok to faint, just get back up",
             }
         ],
         "ce": [
@@ -138,12 +144,14 @@ const officers = {
                 "position": "Community Engagement Chair",
                 "bio": "Hey everyone, my name is Chelsea! I am so delighted to be one of your Community Engagement Chairs this year! In my free time, I love playing tennis, practicing guitar, and hanging out with my dog Hugo. If you have any questions, don't be afraid to ask me!",
                 "image": "Chelsea",
+                "quote": "'cool, cool, cool, no doubt, no doubt, no doubt' - Jake Peralta",
             },
             {
                 "name": "Amol Agrawal",
                 "position": "Community Engagement Chair",
                 "bio": "Whats good yall im Amol and I'll be one of your Community Engagement chairs this year. I love swimming, coding, and playing video games. Im down to answer any of yalls questions and i cant wait to meet all of you at our pms.",
                 "image": "Amol",
+                "quote": "Don’t count the days, make the days count.",
             }
         ],
         
@@ -152,14 +160,16 @@ const officers = {
             {
                 "name": "Sravika Nemani",
                 "position": "Middle Level Chair",
-                "bio": "",
+                "bio": "Hey everyone, I'm Sravika, and I am so excited to serve as one of your middle level chairs this year! I like listen to music (of literally any genre), dancing, and spending time with my friends. If you see me around dond't heistate to say hello!",
                 "image": "Sravika",
+                "quote": "Aal izz well",
             },
             {
                 "name": "Suprathik Malepati",
                 "position": "Middle Level Chair",
-                "bio": "",
+                "bio": "Hey guys, I'm Supra and I'm excited to be one of the Middle Level chairs this year. In my free time I like watching movies and Formula 1 (this year will be Ferrari's year). Outside of school I also like dancing. Feel free to talk to me about anything!",
                 "image": "Supra",
+                "quote": "Never that deep",
             }
         ],
 
