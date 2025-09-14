@@ -65,7 +65,8 @@ export default function Register() {
     buttonText: "Get Started"
   });
 
-  const validKeys = ["7799774850", "9078422944", "3407372254", "2909954248"];
+  // const validKeys = ["7799774850", "9078422944", "3407372254", "2909954248"];
+    const validKeys = ["9078422944"];
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setState({
