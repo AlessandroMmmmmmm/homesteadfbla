@@ -32,10 +32,10 @@ const ProfileCard = () => {
   // Define milestones
   const milestones = [
     { name: 'Bronze Member', points: 10, color: '#CD7F32' },
-    { name: 'Silver Member', points: 25, color: '#C0C0C0' },
-    { name: 'Gold Member', points: 50, color: '#FFD700' },
-    { name: 'Platinum Member', points: 75, color: '#E5E4E2' },
-    { name: 'Diamond Member', points: 100, color: '#B9F2FF' }
+    { name: 'Silver Member', points: 20, color: '#C0C0C0' },
+    { name: 'Gold Member', points: 30, color: '#FFD700' },
+    { name: 'Platinum Member', points: 40, color: '#E5E4E2' },
+    { name: 'Diamond Member', points: 50, color: '#B9F2FF' }
   ];
 
   useEffect(() => {
@@ -414,4 +414,4 @@ const ProfileCard = () => {
   );
 };
 
-export default ProfileCard; 
+export default ProfileCard;
