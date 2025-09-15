@@ -29,13 +29,38 @@ const ProfileCard = () => {
 
   const isMobile = useMediaQuery('(max-width:600px)');
 
-  // Define milestones
+  // Define milestones with prizes
   const milestones = [
-    { name: 'Bronze Member', points: 10, color: '#CD7F32' },
-    { name: 'Silver Member', points: 20, color: '#C0C0C0' },
-    { name: 'Gold Member', points: 30, color: '#FFD700' },
-    { name: 'Platinum Member', points: 40, color: '#E5E4E2' },
-    { name: 'Diamond Member', points: 50, color: '#B9F2FF' }
+    { 
+      name: 'Bronze Member', 
+      points: 10, 
+      color: '#CD7F32', // Rich Bronze
+      prize: 'Bronze Prize'
+    },
+    { 
+      name: 'Silver Member', 
+      points: 20, 
+      color: '#A8A8A8', // Bright Silver
+      prize: 'Silver Prize'
+    },
+    { 
+      name: 'Gold Member', 
+      points: 30, 
+      color: '#FFD700', // Pure Gold
+      prize: 'Gold Prize'
+    },
+    { 
+      name: 'Platinum Member', 
+      points: 40, 
+      color: '#E5E4E2', // Bright Platinum
+      prize: 'Platinum Prize'
+    },
+    { 
+      name: 'Diamond Member', 
+      points: 50, 
+      color: '#00BFFF', // Diamond Blue
+      prize: 'Diamond Prize'
+    }
   ];
 
   useEffect(() => {
@@ -168,7 +193,7 @@ const ProfileCard = () => {
       {user ? (
         <div className="
           flex flex-col items-center 
-          w-11/12 md:w-8/12 lg:w-7/12 xl:w-5/12 2xl:w-4/12 
+          w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 2xl:w-7/12 
           h-5/6 rounded-lg pt-10 mt-5 shadow-2xl 
           border-4 border-red-violet bg-watermelon-red bg-opacity-70">
           <div className="flex justify-center">
@@ -316,68 +341,140 @@ const ProfileCard = () => {
                       )}
                     </div>
 
-                    {/* Milestone Progress */}
+                    {/* Milestone Progress with Column Layout */}
                     <div className="space-y-8">
+                      {/* Progress Bar Section */}
+                      <div className="relative">
+                        <div className="absolute top-8 left-0 right-0 h-2 bg-gray-700 rounded-full"></div>
+                        
+                        {/* Progress Line */}
+                        <div 
+                          className="absolute top-8 left-0 h-2 bg-yellow-400 rounded-full transition-all duration-1000 ease-out shadow-lg"
+                          style={{ 
+                            width: `${Math.min((userPoints / milestones[milestones.length - 1].points) * 100, 100)}%` 
+                          }}
+                        ></div>
+
+                        {/* Milestone Points on Progress Bar */}
+                        <div className="flex justify-between relative z-10">
                       {milestones.map((milestone, index) => {
                         const isAchieved = userPoints >= milestone.points;
                         const isNext = !isAchieved && userPoints < milestone.points && 
                           (!milestones[index - 1] || userPoints >= milestones[index - 1].points);
-                        const progress = calculateProgress(milestone);
 
                         return (
                           <div 
                             key={milestone.name}
-                            className={`relative ${isAchieved ? 'opacity-100' : 'opacity-70'}`}
-                          >
-                            <div className="flex items-center mb-2">
-                              <div 
-                                className={`w-12 h-12 rounded-full flex items-center justify-center
-                                  ${isAchieved ? 'bg-opacity-100' : 'bg-opacity-50'}`}
-                                style={{ backgroundColor: milestone.color }}
+                                className="relative flex flex-col items-center"
                               >
-                                <span className="text-dark-chocolate text-xl font-bold">
-                                  {isAchieved ? '✓' : milestone.points}
-                                </span>
-                              </div>
-                              <div className="ml-4 flex-grow">
-                                <div className="flex items-center justify-between">
-                                  <h3 className="text-white font-semibold">{milestone.name}</h3>
-                                  <p className="text-gray-300 text-sm">
+                                {/* Milestone Icon */}
+                                <div 
+                                  className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg border-4 ${
+                                    isAchieved 
+                                      ? 'border-white shadow-glow' 
+                                      : isNext 
+                                      ? 'border-yellow-300 shadow-yellow-300/50' 
+                                      : 'border-gray-400'
+                                  }`}
+                                  style={{ 
+                                    backgroundColor: milestone.color,
+                                    boxShadow: isAchieved ? `0 0 20px ${milestone.color}80` : 'none'
+                                  }}
+                                >
                                     {isAchieved ? (
-                                      <span className="text-green-300">
-                                        Achieved! 🎉 Congratulations!
-                                      </span>
-                                    ) : isNext ? (
-                                      `${milestone.points - userPoints} more points needed`
-                                    ) : (
-                                      ''
-                                    )}
+                                    <span className="text-white text-2xl font-bold">✓</span>
+                                  ) : (
+                                    <span className="text-white text-lg font-bold">{milestone.points}</span>
+                                  )}
+                                </div>
+
+                                {/* Milestone Label */}
+                                <div className="mt-3 text-center">
+                                  <h3 className={`text-sm font-bold ${
+                                    isAchieved ? 'text-white' : isNext ? 'text-yellow-200' : 'text-gray-400'
+                                  }`}>
+                                    {milestone.name}
+                                  </h3>
+                                  <p className="text-xs text-gray-400 mt-1">
+                                    {milestone.points} pts
                                   </p>
                                 </div>
                               </div>
+                            );
+                          })}
+                              </div>
                             </div>
 
-                            {/* Progress Bar */}
-                            <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                              <div
-                                className="h-full transition-all duration-500 ease-out rounded-full"
-                                style={{
-                                  width: `${progress}%`,
-                                  backgroundColor: milestone.color
-                                }}
-                              />
+                      {/* Milestone Columns with Benefits */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        {milestones.map((milestone, index) => {
+                          const isAchieved = userPoints >= milestone.points;
+                          const isNext = !isAchieved && userPoints < milestone.points && 
+                            (!milestones[index - 1] || userPoints >= milestones[index - 1].points);
+
+                          return (
+                            <div 
+                              key={milestone.name}
+                              className={`bg-white bg-opacity-10 rounded-xl p-6 backdrop-blur-sm border border-white border-opacity-20 ${
+                                isAchieved ? 'opacity-100' : isNext ? 'opacity-90' : 'opacity-60'
+                              }`}
+                            >
+                              {/* Milestone Header */}
+                              <div className="text-center mb-6">
+                                <h4 className={`text-xl font-bold mb-2 ${
+                                  isAchieved ? 'text-white' : isNext ? 'text-yellow-200' : 'text-gray-400'
+                                }`}>
+                                  {milestone.name}
+                                </h4>
+                                <p className="text-sm text-gray-400 mb-4">
+                                  {milestone.points} points
+                                </p>
+                                
+                                {/* Status Indicator */}
+                                <div className="mb-4">
+                                  {isAchieved ? (
+                                    <span className="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                      ✓ UNLOCKED
+                                    </span>
+                                  ) : isNext ? (
+                                    <span className="inline-block bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                      {milestone.points - userPoints} more points
+                                    </span>
+                                  ) : (
+                                    <span className="inline-block bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                      LOCKED
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+
+                              {/* Prize Display */}
+                              <div className="text-center">
+                                <p className="text-sm text-gray-200">
+                                  <span className="font-semibold text-white">Prize:</span> {milestone.prize}
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        })}
                             </div>
 
-                            {/* Connector Line */}
-                            {index < milestones.length - 1 && (
-                              <div 
-                                className="absolute left-6 bottom-0 w-0.5 h-8 bg-gray-600"
-                                style={{ transform: 'translateY(100%)' }}
-                              />
-                            )}
+                      {/* Current Progress Indicator */}
+                      {/* <div className="text-center">
+                        <div className="inline-flex items-center space-x-6 bg-white bg-opacity-10 rounded-full px-8 py-4 backdrop-blur-sm">
+                          <div className="text-white">
+                            <span className="text-2xl font-bold">{userPoints}</span>
+                            <span className="text-sm ml-1">points</span>
                           </div>
-                        );
-                      })}
+                          <div className="w-px h-8 bg-gray-400"></div>
+                          <div className="text-gray-300">
+                            <span className="text-sm">Next: </span>
+                            <span className="font-semibold">
+                              {getNextMilestone() ? getNextMilestone().name : 'Max Level!'}
+                            </span>
+                          </div>
+                        </div>
+                      </div> */}
                     </div>
                   </div>
                 </TabPanel>
