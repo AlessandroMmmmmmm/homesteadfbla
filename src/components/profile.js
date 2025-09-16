@@ -23,7 +23,7 @@ const ProfileCard = () => {
   const [value, setValue] = useState("1");
   const [leaderboardType, setLeaderboardType] = useState('regular');
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const [writtenLeaderboardData, setWrittenLeaderboardData] = useState([]);
+  // const [writtenLeaderboardData, setWrittenLeaderboardData] = useState([]);
   const [userPlacement, setUserPlacement] = useState(null);
   const [userPoints, setUserPoints] = useState(0);
 
@@ -281,7 +281,7 @@ const ProfileCard = () => {
                       }}
                     >
                       <MenuItem value="regular">Activity Points</MenuItem>
-                      <MenuItem value="written">Written Competitor Points</MenuItem>
+                      {/* <MenuItem value="written">Written Competitor Points</MenuItem> */}
                     </Select>
                   </FormControl>
 
