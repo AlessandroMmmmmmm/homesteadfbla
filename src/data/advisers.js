@@ -20,6 +20,13 @@ let advisers = [
         bio: "",
         quote: "",
         image: "default"
+    },
+    {
+        name: "Ms. Hannah Goh",
+        position: "Homestead FBLA Adviser / Business Teacher @ Homestead (2025 - Present)",
+        bio: "",
+        quote: "",
+        image: "default"
     }
 ];
 
