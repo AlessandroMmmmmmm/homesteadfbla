@@ -481,22 +481,22 @@ const ProfileCard = () => {
                 <TabPanel value="3">
                   <div className="space-y-3">
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                      <span><strong>President:</strong> <a href="mailto:sanghyuk.eric@gmail.com" target="_blank" rel="noopener noreferrer">sanghyuk.eric@gmail.com</a></span>
+                      <span><strong>President:</strong> <a href="mailto:dorie2188@gmail.com" target="_blank" rel="noopener noreferrer">dorie2188@gmail.com</a></span>
                     </div>
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                      <span><strong>General Email:</strong> <a href="mailto:officers@hhsfbla.com" target="_blank" rel="noopener noreferrer">officers@hhsfbla.com</a></span>
+                      <span><strong>Officers:</strong> <a href="mailto:officers@homesteadfbla.com" target="_blank" rel="noopener noreferrer">officers@homesteadfbla.com</a></span>
                     </div>
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                      <span><strong>Community Service:</strong> <a href="mailto:cs@hhsfbla.com" target="_blank" rel="noopener noreferrer">cs@hhsfbla.com</a></span>
+                      <span><strong>Community Service:</strong> <a href="mailto:cs@homesteadfbla.com" target="_blank" rel="noopener noreferrer">cs@homesteadfbla.com</a></span>
                     </div>
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                      <span><strong>American Enterprise:</strong> <a href="mailto:ae@hhsfbla.com" target="_blank" rel="noopener noreferrer">ae@hhsfbla.com</a></span>
+                      <span><strong>Software Ventures:</strong> <a href="mailto:sv@homesteadfbla.com" target="_blank" rel="noopener noreferrer">sv@homesteadfbla.com</a></span>
                     </div>
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                      <span><strong>Partnership with Business:</strong> <a href="mailto:pwb@hhsfbla.com" target="_blank" rel="noopener noreferrer">pwb@hhsfbla.com</a></span>
+                      <span><strong>Community Engagement:</strong> <a href="mailto:ce@homesteadfbla.com" target="_blank" rel="noopener noreferrer">ce@homesteadfbla.com</a></span>
                     </div>
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                      <span><strong>Software Ventures:</strong> <a href="mailto:sv@hhsfbla.com" target="_blank" rel="noopener noreferrer">sv@hhsfbla.com</a></span>
+                      <span><strong>Competitions:</strong> <a href="mailto:compschairs@homesteadfbla.com" target="_blank" rel="noopener noreferrer">compschairs@homesteadfbla.com</a></span>
                     </div>
                   </div>
                 </TabPanel>
