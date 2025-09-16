@@ -344,67 +344,78 @@ const ProfileCard = () => {
                     {/* Milestone Progress with Column Layout */}
                     <div className="space-y-8">
                       {/* Progress Bar Section */}
-                      <div className="relative">
-                        <div className="absolute top-8 left-0 right-0 h-2 bg-gray-700 rounded-full"></div>
-                        
-                        {/* Progress Line */}
-                        <div 
-                          className="absolute top-8 left-0 h-2 bg-yellow-400 rounded-full transition-all duration-1000 ease-out shadow-lg"
-                          style={{ 
-                            width: `${Math.min((userPoints / milestones[milestones.length - 1].points) * 100, 100)}%` 
-                          }}
-                        ></div>
+                   {/* Progress Bar Section */}
+                      <div className={`relative flex ${isMobile ? "flex-col items-center" : "flex-row justify-between w-full"}`}>
+                        {/* Desktop: background + progress lines */}
+                        {!isMobile && (
+                          <>
+                            {/* Background line */}
+                            <div className="absolute top-8 left-0 right-0 h-2 bg-gray-700 rounded-full"></div>
 
-                        {/* Milestone Points on Progress Bar */}
-                        <div className="flex justify-between relative z-10">
-                      {milestones.map((milestone, index) => {
-                        const isAchieved = userPoints >= milestone.points;
-                        const isNext = !isAchieved && userPoints < milestone.points && 
-                          (!milestones[index - 1] || userPoints >= milestones[index - 1].points);
+                            {/* Progress line */}
+                            <div
+                              className="absolute top-8 left-0 h-2 bg-yellow-400 rounded-full shadow-lg transition-all duration-1000 ease-out"
+                              style={{
+                                width: `${Math.min(
+                                  (userPoints / milestones[milestones.length - 1].points) * 100,
+                                  100
+                                )}%`
+                              }}
+                            ></div>
+                          </>
+                        )}
 
-                        return (
-                          <div 
-                            key={milestone.name}
-                                className="relative flex flex-col items-center"
-                              >
-                                {/* Milestone Icon */}
-                                <div 
+                        {/* Milestones */}
+                        <div
+                          className={`relative z-10 flex ${
+                            isMobile
+                              ? "flex-col justify-between space-y-6"
+                              : "flex-row justify-between w-full"
+                          }`}
+                        >
+                          {milestones.map((milestone, index) => {
+                            const isAchieved = userPoints >= milestone.points;
+                            const isNext =
+                              !isAchieved &&
+                              userPoints < milestone.points &&
+                              (!milestones[index - 1] || userPoints >= milestones[index - 1].points);
+
+                            return (
+                              <div key={milestone.name} className="relative flex flex-col items-center">
+                                <div
                                   className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg border-4 ${
-                                    isAchieved 
-                                      ? 'border-white shadow-glow' 
-                                      : isNext 
-                                      ? 'border-yellow-300 shadow-yellow-300/50' 
-                                      : 'border-gray-400'
+                                    isAchieved
+                                      ? "border-white shadow-glow"
+                                      : isNext
+                                      ? "border-yellow-300 shadow-yellow-300/50"
+                                      : "border-gray-400"
                                   }`}
-                                  style={{ 
+                                  style={{
                                     backgroundColor: milestone.color,
-                                    boxShadow: isAchieved ? `0 0 20px ${milestone.color}80` : 'none'
+                                    boxShadow: isAchieved ? `0 0 20px ${milestone.color}80` : "none"
                                   }}
                                 >
-                                    {isAchieved ? (
+                                  {isAchieved ? (
                                     <span className="text-white text-2xl font-bold">✓</span>
                                   ) : (
                                     <span className="text-white text-lg font-bold">{milestone.points}</span>
                                   )}
                                 </div>
-
-                                {/* Milestone Label */}
                                 <div className="mt-3 text-center">
-                                  <h3 className={`text-sm font-bold ${
-                                    isAchieved ? 'text-white' : isNext ? 'text-yellow-200' : 'text-gray-400'
-                                  }`}>
+                                  <h3
+                                    className={`text-sm font-bold ${
+                                      isAchieved ? "text-white" : isNext ? "text-yellow-200" : "text-gray-400"
+                                    }`}
+                                  >
                                     {milestone.name}
                                   </h3>
-                                  <p className="text-xs text-gray-400 mt-1">
-                                    {milestone.points} pts
-                                  </p>
+                                  <p className="text-xs text-gray-400 mt-1">{milestone.points} pts</p>
                                 </div>
                               </div>
                             );
                           })}
-                              </div>
-                            </div>
-
+                        </div>
+                      </div>
                       {/* Milestone Columns with Benefits */}
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                         {milestones.map((milestone, index) => {
