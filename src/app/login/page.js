@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
-import firebase from 'src/app/firebase'; // Adjust the path as per your project structure
+import firebase from '@/app/firebase'; // Adjust the path as per your project structure
 import Image from 'next/image';
 import Nav from '@/components/nav';
 import Footer from '@/components/footer';
