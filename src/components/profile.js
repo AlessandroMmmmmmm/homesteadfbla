@@ -35,31 +35,31 @@ const ProfileCard = () => {
       name: 'Bronze Member', 
       points: 10, 
       color: '#CD7F32', // Rich Bronze
-      prize: 'Bronze Prize'
+      prize: 'Candy'
     },
     { 
       name: 'Silver Member', 
       points: 20, 
       color: '#A8A8A8', // Bright Silver
-      prize: 'Silver Prize'
+      prize: 'Undetermined'
     },
     { 
       name: 'Gold Member', 
       points: 30, 
       color: '#FFD700', // Pure Gold
-      prize: 'Gold Prize'
+      prize: 'Undetermined'
     },
     { 
       name: 'Platinum Member', 
       points: 40, 
       color: '#E5E4E2', // Bright Platinum
-      prize: 'Platinum Prize'
+      prize: 'Choose room at SLC'
     },
     { 
       name: 'Diamond Member', 
       points: 50, 
       color: '#00BFFF', // Diamond Blue
-      prize: 'Diamond Prize'
+      prize: 'Choose room at NLC'
     }
   ];
 
