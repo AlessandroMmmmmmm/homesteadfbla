@@ -145,7 +145,7 @@ export default function PointsPage() {
             usedCodes: [...usedCodes, secretCode],
           });
 
-          // --- NEW: Track GM codes in firstThree collection ---
+          // Track GM codes in firstThree collection
           if (GM_CODES.includes(secretCode)) {
             const userGMRef = doc(db, 'firstThree', user.uid);
             const userGMSnap = await getDoc(userGMRef);
@@ -157,7 +157,6 @@ export default function PointsPage() {
 
             await setDoc(userGMRef, { name: user.displayName, gmEntered }, { merge: true });
           }
-          // --- END NEW ---
         });
 
         console.log("Activity point(s) added successfully.");

@@ -7,9 +7,9 @@ import Nav from "@/components/nav";
 import OfficerCard from "@/components/officerCard.js";
 
 export default function Officers() {
+  
   return (
     <>
-
         <Image alt="advisers" src={advisersPic} className="fixed blur-sm bg-scroll object-cover object-bottom opacity-10 h-[100vh] w-[100vw] z-[-10]" draggable={false}/>
         <Nav />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-10 my-10 gap-4">
