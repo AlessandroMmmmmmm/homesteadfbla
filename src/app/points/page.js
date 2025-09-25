@@ -31,28 +31,35 @@ export default function PointsPage() {
   const [pointsValue, setPointsValue] = useState(0);
 
   const GM_CODES = ['GM1-0w4h', 'GM2-NF7k'];
+
   const fetchUsedCodes = async () => {
     if (user) {
       const db = getFirestore();
       const userRef = doc(db, 'activityPoints2026', user.uid);
       const writtenUserRef = doc(db, 'writtenActivityPoints', user.uid);
-      const userData = doc(db, 'users', user.displayName);
-      const userDataSnap = await getDoc(userData);
+      // Fix: use user.uid instead of displayName for user document
+      const userDataRef = doc(db, 'users', user.uid);
+      const userDataSnap = await getDoc(userDataRef);
       const userSnap = await getDoc(userRef);
       const writtenUserSnap = await getDoc(writtenUserRef);
-  
-      if (userSnap.exists()) {
+
+      // Set authType safely
+      if (userDataSnap.exists()) {
         const generalUserData = userDataSnap.data();
-        setAuthType(generalUserData.authType);
+        setAuthType(generalUserData?.authType || '');
+      } else {
+        setAuthType('');
+      }
+
+      if (userSnap.exists()) {
         setUsedCodes(userSnap.data().usedCodes || []);
       } else if (writtenUserSnap.exists()) {
-        const generalUserData = userDataSnap.data();
-        setAuthType(generalUserData.authType);
         setUsedCodes(writtenUserSnap.data().usedCodes || []);
+      } else {
+        setUsedCodes([]);
       }
     }
   };
-  
 
   const fetchPointCodes = async () => {
     const db = getFirestore();
