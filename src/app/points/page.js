@@ -30,8 +30,7 @@ export default function PointsPage() {
   const [selectedPointType, setSelectedPointType] = useState('');
   const [pointsValue, setPointsValue] = useState(0);
 
-  // Only GM1 code is tracked
-  const GM_CODES = ['GM1-0w4h'];
+  const GM_CODES = ['GM1-0w4h', 'GM2-NF7k', 'GM3-IaZk'];
 
   const fetchUsedCodes = async () => {
     if (user) {
@@ -145,7 +144,20 @@ export default function PointsPage() {
             usedCodes: [...usedCodes, secretCode],
           });
 
-          // Track GM codes in firstThree collection
+          if (secretCode === GM_CODES[2]) {
+            const firstTwoRef = doc(db, 'firstTwo', user.uid);
+            const firstTwoSnap = await getDoc(firstTwoRef);
+
+            if (firstTwoSnap.exists()) {
+              const firstThreeRef = doc(db, 'firstThree', user.uid);
+              await setDoc(firstThreeRef, {
+                name: user.displayName,
+                ...firstTwoSnap.data(),
+                completedAllThree: true,
+              }, { merge: true });
+            }
+          }
+
           if (GM_CODES.includes(secretCode)) {
             const userGMRef = doc(db, 'firstThree', user.uid);
             const userGMSnap = await getDoc(userGMRef);
@@ -159,11 +171,9 @@ export default function PointsPage() {
           }
         });
 
-        console.log("Activity point(s) added successfully.");
         setCodeVerified(false);
         setSecretCode('');
       } catch (e) {
-        console.error("Error adding activity point: ", e);
         setErrorMessage(e.message);
       } finally {
         setIsSubmitting(false);
@@ -237,7 +247,6 @@ export default function PointsPage() {
       setGeneratedCode(combinedCode);
       setErrorMessage('');
     } catch (e) {
-      console.error("Error adding new code to Firestore: ", e);
       setErrorMessage(`Error occurred: ${e.message}`);
     }
 
