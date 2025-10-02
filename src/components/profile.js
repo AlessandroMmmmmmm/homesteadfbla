@@ -498,6 +498,9 @@ const ProfileCard = () => {
                       <span><strong>Officers:</strong> <a href="mailto:officers@homesteadfbla.com" target="_blank" rel="noopener noreferrer">officers@homesteadfbla.com</a></span>
                     </div>
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
+                      <span><strong>Competitions:</strong> <a href="mailto:comps@homesteadfbla.com" target="_blank" rel="noopener noreferrer">comps@homesteadfbla.com</a></span>
+                    </div>
+                    <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
                       <span><strong>Community Service:</strong> <a href="mailto:cs@homesteadfbla.com" target="_blank" rel="noopener noreferrer">cs@homesteadfbla.com</a></span>
                     </div>
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
@@ -506,9 +509,7 @@ const ProfileCard = () => {
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
                       <span><strong>Community Engagement:</strong> <a href="mailto:ce@homesteadfbla.com" target="_blank" rel="noopener noreferrer">ce@homesteadfbla.com</a></span>
                     </div>
-                    <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                      <span><strong>Competitions:</strong> <a href="mailto:compschairs@homesteadfbla.com" target="_blank" rel="noopener noreferrer">compschairs@homesteadfbla.com</a></span>
-                    </div>
+
                   </div>
                 </TabPanel>
               </Box>
