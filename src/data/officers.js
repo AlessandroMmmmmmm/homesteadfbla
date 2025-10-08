@@ -21,13 +21,13 @@ const officers = {
             "image": "Smyan",
             "quote": "I’m not so good with the advice. Can I interest you in a sarcastic comment?",
         },
-        {
-            "name": "Henry Hu",
-            "position": "Executive VP - Conferences",
-            "bio": "Hello. I'm Henry, and I'm the EVP of Conferences. I'm responsible for conference planning and logistics. In addition, I register members for national membership and manage club finances. Please email any questions to henryhu21108@gmail.com.",
-            "image": "Henry",
-            "quote": "Takes skill to be this lucky",
-        }
+        // {
+        //     "name": "",
+        //     "position": "Executive VP - Conferences",
+        //     "bio": "",
+        //     "image": "",
+        //     "quote": "",
+        // }
     ],
     "ops": [
         {

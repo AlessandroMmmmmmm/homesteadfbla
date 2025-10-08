@@ -1,12 +1,5 @@
 let mentors = [
     {
-        name : "Henry Hu",
-        type : "Officer",
-        competitions : "Business Law, Personal Finance",
-        desc : "Hi everyone. My name is Henry and I am a junior at Homestead. Yes the background of my picture is Spongebob's house.",
-        image : "HenryH"
-    },
-    {
         name : "Alessandro Montesi",
         type : "Officer",
         competitions : "Computer Problem Solving, Introduction to Information Technology, Network Infrastructure",
