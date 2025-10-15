@@ -350,9 +350,9 @@ export default function Home() {
           >
             <h1 className="text-xl font-semibold">Projects</h1>
             <p className="text-gray-300 mt-2 mb-9">
-              Homestead FBLA has 2 projects; Community Service and 
-              Software Ventures. Each of them aims to develop valuable business and 
-              leadership skills among students.
+              Homestead FBLA has 3 projects; Community Service, Community
+              Engagement, and Software Ventures. Each of them aims to develop 
+              valuable business and leadership skills among students.
             </p>
 
             <div className="lg:grid-cols-4 lg:gap-x-3 gap-x-3 gap-y-3 lg:justify-between grid grid-cols-2 lg:gap-0">
@@ -362,6 +362,13 @@ export default function Home() {
                   text-[15px] rounded-xl"
               >
                 CS
+              </Link>
+              <Link
+                href="/projects/community-engagement"
+                className="border-2 border-watermelon-red hover:bg-watermelon-red ease-linear duration-200 cursor-pointer flex justify-center p-3 
+                  text-[15px] rounded-xl"
+              >
+                CE
               </Link>
               <Link
                 href="/projects/software-ventures"
