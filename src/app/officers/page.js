@@ -48,7 +48,7 @@ export default function Officers() {
             
             <div className="my-10 bg-purple-600 bg-opacity-20 border-2 rounded-lg  border-purple-600 px-8 py-6">  
                 <h2 className="text-purple-600 text-2xl font-bold mb-6">Operations Team</h2>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {officers.ops.map((officer) => (
                     <OfficerCard key={officer.name} {...officer} />
                     ))}

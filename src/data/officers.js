@@ -38,13 +38,13 @@ const officers = {
             "quote": "The safest way to double your money is to fold it over and put it in your pocket",
            
         },
-        {
-            "name": "Chloe Wang",
-            "position": "VP Public Relation",
-            "bio": "Hi! I'm Chloe, and I'm happy to be your VP of Public Relations for this year. I love discovering and listening to music (just found out I quite enjoy live electronic music) and knowing random facts. Feel free to reach out about anything!",
-            "image": "Chloe",
+        // {
+        //     "name": "",
+        //     "position": "VP Public Relation",
+        //     "bio": "",
+        //     "image": "",
            
-        },
+        // },
         {
             "name": "Meredith Tan",
             "position": "Treasurer",
