@@ -103,7 +103,7 @@ const ProfileCard = () => {
     }));
 
     // Set top 5 for leaderboard
-    setLeaderboardData(allUsers.slice(0, 5));
+    setLeaderboardData(allUsers);
 
     // Find user's rank
     const userRank = allUsers.findIndex(u => u.email === user.email) + 1;
@@ -130,13 +130,13 @@ const ProfileCard = () => {
     }));
 
     // Set top 5 for leaderboard
-    setWrittenLeaderboardData(allUsers.slice(0, 5));
+    setWrittenLeaderboardData(allUsers);
 
     // Find user's rank
     const userRank = allUsers.findIndex(u => u.email === user.email) + 1;
     const userData = allUsers.find(u => u.email === user.email);
     
-    if (userData && !allUsers.slice(0, 5).some(u => u.email === user.email)) {
+    if (userData && !allUsers.some(u => u.email === user.email)) {
       setUserPlacement({ ...userData, rank: userRank });
     } else {
       setUserPlacement(null);
