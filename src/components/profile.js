@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';   
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { getFirestore, collection, query, orderBy, getDocs, where } from 'firebase/firestore';
+import { auth } from '@/app/firebase';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
@@ -19,10 +20,8 @@ const ProfileCard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [userPlacement, setUserPlacement] = useState(null);
   const [userPoints, setUserPoints] = useState(0);
-
   const [page, setPage] = useState(0);
   const pageSize = 5;
-
   const isMobile = useMediaQuery('(max-width:600px)');
 
   const milestones = [
@@ -64,7 +63,6 @@ const ProfileCard = () => {
       email: doc.data().email
     }));
     setLeaderboardData(allUsers);
-
     const userRank = allUsers.findIndex(u => u.email === user.email) + 1;
     const userData = allUsers.find(u => u.email === user.email);
     if (userData && !allUsers.slice(0, 5).some(u => u.email === user.email))
@@ -76,9 +74,7 @@ const ProfileCard = () => {
     if (leaderboardType === 'regular') fetchLeaderboardData();
   }, [leaderboardType, fetchLeaderboardData]);
 
-  useEffect(() => {
-    setPage(0);
-  }, [leaderboardType]);
+  useEffect(() => setPage(0), [leaderboardType]);
 
   useEffect(() => {
     const fetchUserPoints = async () => {
@@ -92,17 +88,14 @@ const ProfileCard = () => {
     fetchUserPoints();
   }, [user]);
 
-  const handleChange = (event, newValue) => setValue(newValue);
-
+  const handleChange = (e, v) => setValue(v);
   const getCurrentMilestone = () => {
     const achieved = milestones.filter(m => userPoints >= m.points);
     return achieved[achieved.length - 1] || null;
   };
-
   const getNextMilestone = () => {
     return milestones.find(m => userPoints < m.points) || milestones[milestones.length - 1];
   };
-
   const paginatedLeaderboard = leaderboardData.slice(
     page * pageSize,
     page * pageSize + pageSize
@@ -119,29 +112,27 @@ const ProfileCard = () => {
             <h2 className="text-2xl font-semibold text-gray-200">{user.displayName}</h2>
             <p className="text-gray-300">{user.email}</p>
           </div>
-
           <div className="w-full mt-6">
             <TabContext value={value}>
               <Box>
-                <Tabs 
-                  value={value} 
-                  onChange={handleChange} 
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
                   variant={isMobile ? "scrollable" : "fullWidth"}
                   scrollButtons={isMobile ? "auto" : "false"}
-                  textColor="primary" 
+                  textColor="primary"
                   indicatorColor="primary"
                   sx={{
                     '& .MuiTabs-indicator': { backgroundColor: 'white' },
-                    '& .MuiTab-root': { color: '#a0aec0', minWidth: 120, whiteSpace: 'nowrap' },
+                    '& .MuiTab-root': { color: '#a0aec0', minWidth: 120 },
                     '& .Mui-selected': { color: 'white !important' }
                   }}
                 >
-                  <Tab label="Activity Points" value="1"/>
+                  <Tab label="Activity Points" value="1" />
                   <Tab label="Milestones" value="2" />
                   <Tab label="Contact Info" value="3" />
                 </Tabs>
               </Box>
-
               <Box className="mt-4">
                 <TabPanel value="1">
                   <FormControl fullWidth variant="outlined" sx={{ mb: 2 }}>
@@ -153,21 +144,16 @@ const ProfileCard = () => {
                       sx={{
                         color: 'white',
                         '.MuiOutlinedInput-notchedOutline': { borderColor: 'white' },
-                        '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: 'white' },
-                        '.MuiSvgIcon-root': { color: 'white' },
-                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: 'white' },
-                        '& .MuiSelect-select': { color: 'white' }
+                        '.MuiSvgIcon-root': { color: 'white' }
                       }}
                       MenuProps={{ PaperProps: { sx: { color: 'black' }}}}
                     >
                       <MenuItem value="regular">Activity Points</MenuItem>
                     </Select>
                   </FormControl>
-
                   <div className="space-y-3 mt-4">
-
                     <div className="flex justify-between items-center mb-3">
-                      <Button 
+                      <Button
                         variant="contained"
                         disabled={page === 0}
                         onClick={() => setPage(page - 1)}
@@ -175,12 +161,10 @@ const ProfileCard = () => {
                       >
                         {"<"}
                       </Button>
-
                       <span className="text-white text-sm">
                         Page {page + 1} / {Math.ceil(leaderboardData.length / pageSize)}
                       </span>
-
-                      <Button 
+                      <Button
                         variant="contained"
                         disabled={(page + 1) * pageSize >= leaderboardData.length}
                         onClick={() => setPage(page + 1)}
@@ -189,9 +173,8 @@ const ProfileCard = () => {
                         {">"}
                       </Button>
                     </div>
-
                     {paginatedLeaderboard.map((item, index) => (
-                      <div 
+                      <div
                         key={index}
                         className={`flex justify-between p-2 ${
                           item.email === user.email ? 'bg-red-400 bg-opacity-30' : 'bg-red-violet'
@@ -201,7 +184,6 @@ const ProfileCard = () => {
                         <span>{item.activityPoints} pts</span>
                       </div>
                     ))}
-
                     {userPlacement && (
                       <>
                         <div className="flex justify-center">
@@ -215,17 +197,135 @@ const ProfileCard = () => {
                     )}
                   </div>
                 </TabPanel>
-
                 <TabPanel value="2">
-                  <div className="space-y-6 text-center text-white">
-                    <h2 className="text-2xl font-bold">Your Progress</h2>
-                    <p className="text-lg">You have: <span className="font-bold">{userPoints}</span> points</p>
-                    {getNextMilestone() !== getCurrentMilestone() && (
-                      <p className="text-lg text-gray-300">Next milestone: {getNextMilestone().name} at {getNextMilestone().points} points</p>
-                    )}
+                  <div className="space-y-6">
+                    <div className="text-center mb-8">
+                      <h2 className="text-2xl font-bold text-white mb-2">
+                        Your Progress
+                      </h2>
+                      <p className="mb-1 text-lg">
+                        You have: <span className="font-bold">{userPoints} </span> points
+                      </p>
+                      {getNextMilestone() && getCurrentMilestone() !== getNextMilestone() && (
+                        <p className="text-gray-300 text-lg">
+                          Next milestone: {getNextMilestone().name} at {getNextMilestone().points} points
+                        </p>
+                      )}
+                    </div>
+                    <div className="space-y-8">
+                      <div className={`relative flex ${isMobile ? "flex-col items-center" : "flex-row justify-between w-full"}`}>
+                        {!isMobile && (
+                          <>
+                            <div className="absolute top-8 left-0 right-0 h-2 bg-gray-700 rounded-full"></div>
+                            <div
+                              className="absolute top-8 left-0 h-2 bg-yellow-400 rounded-full shadow-lg transition-all duration-1000 ease-out"
+                              style={{
+                                width: `${Math.min(
+                                  (userPoints / milestones[milestones.length - 1].points) * 100,
+                                  100
+                                )}%`
+                              }}
+                            ></div>
+                          </>
+                        )}
+                        <div
+                          className={`relative z-10 flex ${
+                            isMobile
+                              ? "flex-col justify-between space-y-6"
+                              : "flex-row justify-between w-full"
+                          }`}
+                        >
+                          {milestones.map((milestone, index) => {
+                            const isAchieved = userPoints >= milestone.points;
+                            const isNext =
+                              !isAchieved &&
+                              userPoints < milestone.points &&
+                              (!milestones[index - 1] || userPoints >= milestones[index - 1].points);
+                            return (
+                              <div key={milestone.name} className="relative flex flex-col items-center">
+                                <div
+                                  className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg border-4 ${
+                                    isAchieved
+                                      ? "border-white shadow-glow"
+                                      : isNext
+                                      ? "border-yellow-300 shadow-yellow-300/50"
+                                      : "border-gray-400"
+                                  }`}
+                                  style={{
+                                    backgroundColor: milestone.color,
+                                    boxShadow: isAchieved ? `0 0 20px ${milestone.color}80` : "none"
+                                  }}
+                                >
+                                  {isAchieved ? (
+                                    <span className="text-white text-2xl font-bold">✓</span>
+                                  ) : (
+                                    <span className="text-white text-lg font-bold">{milestone.points}</span>
+                                  )}
+                                </div>
+                                <div className="mt-3 text-center">
+                                  <h3
+                                    className={`text-sm font-bold ${
+                                      isAchieved ? "text-white" : isNext ? "text-yellow-200" : "text-gray-400"
+                                    }`}
+                                  >
+                                    {milestone.name}
+                                  </h3>
+                                  <p className="text-xs text-gray-400 mt-1">{milestone.points} pts</p>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        {milestones.map((milestone, index) => {
+                          const isAchieved = userPoints >= milestone.points;
+                          const isNext = !isAchieved && userPoints < milestone.points && 
+                            (!milestones[index - 1] || userPoints >= milestones[index - 1].points);
+                          return (
+                            <div 
+                              key={milestone.name}
+                              className={`bg-white bg-opacity-10 rounded-xl p-6 backdrop-blur-sm border border-white border-opacity-20 ${
+                                isAchieved ? 'opacity-100' : isNext ? 'opacity-90' : 'opacity-60'
+                              }`}
+                            >
+                              <div className="text-center mb-6">
+                                <h4 className={`text-xl font-bold mb-2 ${
+                                  isAchieved ? 'text-white' : isNext ? 'text-yellow-200' : 'text-gray-400'
+                                }`}>
+                                  {milestone.name}
+                                </h4>
+                                <p className="text-sm text-gray-400 mb-4">
+                                  {milestone.points} points
+                                </p>
+                                <div className="mb-4">
+                                  {isAchieved ? (
+                                    <span className="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                      ✓ UNLOCKED
+                                    </span>
+                                  ) : isNext ? (
+                                    <span className="inline-block bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                      {milestone.points - userPoints} more points
+                                    </span>
+                                  ) : (
+                                    <span className="inline-block bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                      LOCKED
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                              <div className="text-center">
+                                <p className="text-sm text-gray-200">
+                                  <span className="font-semibold text-white">Prize:</span> {milestone.prize}
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
                 </TabPanel>
-
                 <TabPanel value="3">
                   <div className="space-y-3">
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
@@ -248,7 +348,6 @@ const ProfileCard = () => {
                     </div>
                   </div>
                 </TabPanel>
-
               </Box>
             </TabContext>
           </div>
