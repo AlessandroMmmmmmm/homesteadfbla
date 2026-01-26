@@ -27,8 +27,7 @@ const ProfileCard = () => {
   const milestones = [
     { name: 'Bronze Member', points: 10, color: '#CD7F32', prize: 'Candy' },
     { name: 'Silver Member', points: 25, color: '#A8A8A8', prize: 'Top Member Party *Applies to First Semester*' },
-    { name: 'Gold Member', points: 30, color: '#FFD700', prize: 'Merch' },
-    { name: 'Platinum Member', points: 40, color: '#E5E4E2', prize: 'Choose room at SLC' },
+    { name: 'Gold Member', points: 40, color: '#E5E4E2', prize: 'Choose room at SLC' },
     { name: 'Diamond Member', points: 50, color: '#00BFFF', prize: 'Choose room at NLC' }
   ];
 
