@@ -4,7 +4,7 @@ import Nav from "@/components/nav"
 import Footer from "@/components/footer"
 import officersPic from "../../../../public/static/officers.jpg"
 
-export default function CommunityEngagement() {
+export default function PartnershipWithBusiness() {
     return(
         <>
             <Image src={officersPic} className="fixed blur-sm bg-scroll object-cover opacity-10 h-[100vh] w-[100vw] z-[-10]" draggable={false}/>
