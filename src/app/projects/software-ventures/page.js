@@ -11,7 +11,7 @@ export default function SoftwareVentures() {
             <Nav />
             <div className="h-[80vh] border-2 border-dark-chocolate bg-dark-chocolate p-10 m-10 rounded-xl bg-opacity-30">
                 <h1 className="text-3xl font-bold">Software Ventures</h1>
-                <p className="mt-3 text-lg">Coming soon!</p>
+                <p className="mt-3 text-lg">The Software Ventures project teaches members key technical skills and shows how to integrate them with real-world business concepts. Eventually, members will create and present a final project.</p>
             </div>
 
             <Footer />
