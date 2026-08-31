@@ -350,8 +350,7 @@ export default function Home() {
           >
             <h1 className="text-xl font-semibold">Projects</h1>
             <p className="text-gray-300 mt-2 mb-9">
-              Homestead FBLA has 3 projects; Community Service, Community
-              Engagement, and Software Ventures. Each of them aims to develop 
+              Homestead FBLA has 3 projects; Community Service, Partnership with Business, and Software Ventures. Each of them aims to develop 
               valuable business and leadership skills among students.
             </p>
 
@@ -364,11 +363,11 @@ export default function Home() {
                 CS
               </Link>
               <Link
-                href="/projects/community-engagement"
+                href="/projects/partnership-with-business"
                 className="border-2 border-watermelon-red hover:bg-watermelon-red ease-linear duration-200 cursor-pointer flex justify-center p-3 
                   text-[15px] rounded-xl"
               >
-                CE
+                PwB
               </Link>
               <Link
                 href="/projects/software-ventures"
