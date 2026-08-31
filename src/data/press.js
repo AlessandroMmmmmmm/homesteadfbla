@@ -1,5 +1,12 @@
 let press = [
     {
+        title: "National Leadership Conference 2026",
+        date: "June 2026",
+        desc: "",
+        link: https://drive.google.com/file/d/1QhFbJi_kRYOZCRZfCH5kpyToQaxeFnTE/view?usp=sharing,
+        image: "NLC2026"
+    },
+    {
         title: "State Leadership Conference 2024",
         date: "April 2024",
         desc: "",
