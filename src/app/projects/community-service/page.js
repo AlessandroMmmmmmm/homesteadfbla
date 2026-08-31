@@ -37,7 +37,7 @@ export default function CommunityService() {
           </p>
         ) : (
           <p className="mt-3 text-lg">
-            Coming Soon
+            The Community Service Project is dedicated to creating a positive impact in our local area by taking on an issue and working toward a solution with project members.
           </p>
         )}
       </div>
