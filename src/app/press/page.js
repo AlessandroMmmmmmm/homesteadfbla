@@ -15,7 +15,7 @@ export default function Press() {
        <Nav />
       <div className="border-2 border-dark-chocolate bg-dark-chocolate p-8 m-10 rounded-xl bg-opacity-30">
         <h1 className="text-3xl font-bold">Press</h1>
-        <p className="mt-2 mb-4 text-lg">View our past press releases below. For any press related inquiries, email <Link href="mailto:xxjin1710@gmail.com" className="text-watermelon-red underline inline">chloewangconnect@gmail.com</Link> and our press team will reach out to you within 48 hours.</p>
+        <p className="mt-2 mb-4 text-lg">View our past press releases below. For any press related inquiries, email <Link href="mailto:xxjin1710@gmail.com" className="text-watermelon-red underline inline">xxjin1710@gmail.com</Link> and our press team will reach out to you within 48 hours.</p>
         {/* <Link href="https://linktr.ee/HHS_FBLA_Press" className="text-warm-beige text-lg px-4 group py-2 font-semibold bg-watermelon-red bg-opacity-85 mt-2
         rounded-md hover:brightness-[1.15] ease-linear duration-150 flex flex-row w-fit" target ="_blank">
           View Linktree
