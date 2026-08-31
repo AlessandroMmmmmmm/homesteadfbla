@@ -19,10 +19,6 @@ const navigation = {
     { name: "Software Ventures", href: "/projects/software-ventures" },
     { name: "Partnership with Business", href: "/projects/partnership-with-business"},
   ],
-  // legal: [
-  //   { name: "Privacy", href: "" },
-  //   { name: "Terms", href: "" },
-  // ],
   social: [
     {
       name: "Instagram",
