@@ -330,8 +330,8 @@ export default function Home() {
             <h1 className="text-xl font-semibold">Competitions</h1>
             <p className="text-gray-300 mt-2 mb-[48px]">
               Homestead FBLA competes at Bay Section, States, and Nationals
-              every year. We currently have 28 consecutive Bay Section
-              Championships, 26 consecutive state championships, and 22 national
+              every year. We currently have 29 consecutive Bay Section
+              Championships, 27 consecutive state championships, and 22 national
               championships.
             </p>
 
