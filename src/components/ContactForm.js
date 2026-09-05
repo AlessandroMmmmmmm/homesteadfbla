@@ -46,7 +46,6 @@ export default function ContactForm() {
             <option value="officers@hhsfbla.com">General Questions</option>
             <option value="comps@hhsfbla.com">Competition Related Questions</option>
             <option value="cs@hhsfbla.com">Community Service Project</option>
-            <option value="ae@hhsfbla.com">American Enterprise Project</option>
             <option value="sv@hhsfbla.com">Software Ventures Project</option>
             <option value="pwb@hhsfbla.com">Partnership with Business Project</option>
           </select>

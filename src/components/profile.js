@@ -328,7 +328,7 @@ const ProfileCard = () => {
                 <TabPanel value="3">
                   <div className="space-y-3">
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                      <span><strong>President:</strong> <a href="mailto:dorie2188@gmail.com">dorie2188@gmail.com</a></span>
+                      <span><strong>President:</strong> <a href="mailto:sfanse826@gmail.com">sfanse826@gmail.com</a></span>
                     </div>
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
                       <span><strong>Officers:</strong> <a href="mailto:officers@homesteadfbla.com">officers@homesteadfbla.com</a></span>
@@ -343,7 +343,7 @@ const ProfileCard = () => {
                       <span><strong>Software Ventures:</strong> <a href="mailto:sv@homesteadfbla.com">sv@homesteadfbla.com</a></span>
                     </div>
                     <div className="flex justify-between p-2 bg-red-violet text-white rounded-lg shadow-lg border border-dark-chocolate border-opacity-25">
-                      <span><strong>Community Engagement:</strong> <a href="mailto:ce@homesteadfbla.com">ce@homesteadfbla.com</a></span>
+                      <span><strong>Partnership with Business:</strong> <a href="mailto:pwb@homesteadfbla.com">pwb@homesteadfbla.com</a></span>
                     </div>
                   </div>
                 </TabPanel>

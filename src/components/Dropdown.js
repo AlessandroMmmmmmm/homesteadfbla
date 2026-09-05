@@ -25,9 +25,6 @@ const DropdownMenu = () => {
         }`}
         onMouseLeave={closeDropdown}
       >
-        <Link href="/projects/american-enterprise">
-          <span className="rounded-sm font-light block px-2 py-1 hover:text-warm-beige hover:bg-watermelon-red bg-opacity-5 ease-linear duration-150">American Enterprise</span>
-        </Link>
         <Link href="/projects/community-service">
           <span className="rounded-sm font-light block px-2 py-1 hover:text-warm-beige hover:bg-watermelon-red bg-opacity-5 ease-linear duration-150">Community Service</span>
         </Link>
