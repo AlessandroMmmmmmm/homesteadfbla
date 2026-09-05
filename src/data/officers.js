@@ -1,182 +1,171 @@
 const officers = {
     "exec": [
         {
-            "name": "Dorie Lee",
-            "position": "President",
-            "bio": "Hey guys! I'm Dorie, and I'm so excited to serve as your President this year! I love designing, listening to music, watching cdramas, and getting boba. If you ever need anything, please feel free to reach out! Can't wait to meet you all :)",
-            "image": "Dorie",
-            "quote": "less is more",
-        },
-        {
-            "name": "Jane Ser",
-            "position": "Executive VP - Development",
-            "bio": "Hi guys, I'm Jane and I will be serving as the EVP of Development for the upcoming school year! I like watching people perform music and sipping boba tea a little too often to be healthy. Hope to get to meet some of you soon!",
-            "image": "Jane",
-            "quote": "The purpose of life is a life of purpose",
-        },
-        {
-            "name": "Smyan Shanbhag",
-            "position": "Executive VP - Competitions",
-            "bio": "Hello yall, my name is Smyan Shanbhag and I'm your EVP of Competitions which means I oversee everything that has to do with competitions. I love sports, guitar, music, and the outdoors. Dont hesitate to hit me up if you have any questions relating to competitions whatsoever.",
-            "image": "Smyan",
-            "quote": "I’m not so good with the advice. Can I interest you in a sarcastic comment?",
-        },
-        // {
-        //     "name": "",
-        //     "position": "Executive VP - Conferences",
-        //     "bio": "",
-        //     "image": "",
-        //     "quote": "",
-        // }
-    ],
-    "ops": [
-        {
-            "name": "Arhan Chakravarthy",
-            "position": "VP Member Relations",
-            "bio": "Hey guys, I'm Arhan and I'm really looking forward to being this years VP of Member Relations! During my free time I love playing tennis, watching random shows, and of course watching reels. If you ever see me never be afraid to say hi, and I look forward to meeting y'all!",
-            "image": "Arhan",
-            "quote": "The safest way to double your money is to fold it over and put it in your pocket",
-           
-        },
-        // {
-        //     "name": "",
-        //     "position": "VP Public Relation",
-        //     "bio": "",
-        //     "image": "",
-           
-        // },
-        {
-            "name": "Meredith Tan",
-            "position": "Treasurer",
-            "bio": "Hey guys! I'm Meredith and I'm so excited to be your Treasurer this year! In my free time, I like baking bread, playing volleyball, and biking around the neighborhood. Feel free to reach out anytime with questions, or if you have fun fundraiser ideas!",
-            "image": "Meredith",
-            "quote": "A smooth sea never made a skilled sailor",
-        },
-        {
-            "name": "Vincent Wang",
-            "position": "Ex-Officio / Bay Section President",
-            "bio": "Whats cookin' good lookin'. I'm Vincent, and I'm happy to serve as your ex-officio and Bay Section President this year. My job as ex-officio is to help out anyone who needs it, and that includes members like you. So, feel free to hit me up for any questions or help with competitions, and feel free to say hi when you see me!",
-            "image": "Vincent",
-            "quote": "There are two types of people in this world: 1) those who can extrapolate from existing data",
-        }
-    ],
-    "comps": [
-        {
             "name": "Serena Fanse",
-            "position": "VP of Prepared Competitions",
-            "bio": "Hey everyone! I'm Serena and I am incredibly excited to be your VP of Prepared Speaking this year! Some fun facts about me are that I love reading, watching cringy movies, and hanging out with my friends. Feel free to say hi if you see me around or reach out if you have any questions or want book recs!!",
+            "position": "President",
+            "bio": "Hello everyone! My name is Serena and I'm incredibly excited to serve as your President this year! I love reading, listening to music, and hanging out with my friends. If you ever need anything, please don't hesitate to reach out. I'm looking forward to meeting you all!",
             "image": "Serena",
-            "quote": "Just keep swimming",
-        },
-        {
-            "name": "Sufee Kathane",
-            "position": "VP of Case Competitions",
-            "bio": "Hi everyone! I'm Sufee, and I'm be serving as your VP of Case Studies this year. I love reading, fencing, and (speed playing) board games. If you'd ever like to talk about case studies, school, or anything, let's chat!",
-            "image": "Sufee",
-          
+            "quote": "Nothing worth having comes easy",
         },
         {
             "name": "Leah Pien",
-            "position": "VP of Written Competitions",
-            "bio": "Hey guys! I'm Leah and I'm your VP of Written competitions this year! In my free time, I love playing tennis, getting boba with my friends, and traveling. If you see my around feel free to say hi, and I'm looking forward to meeting everyone!",
+            "position": "Executive VP - Development",
+            "bio": "Hey everyone, my name is Leah and I'll be serving as your EVP of Development this year!! I love playing tennis, traveling, and going to photobooths with my friends. I also love trying out new cafes! If you have any questions, please feel free to reach out!!",
             "image": "Leah",
             "quote": "One step at a time",
         },
         {
             "name": "Alessandro Montesi",
-            "position": "VP of Technology",
-            "bio": "Hi guys! I am Alessandro, and I am super excited to be your VP of Tech for this school year! For fun I loveee listening to Clairo, reading feminist literature, and drinking matcha :)). Feel free to hit me up anytime, I'd love to talk!",
+            "position": "Executive VP - Conferences",
+            "bio": "Hi guys, I'm Alessandro and I'll be serving as your EVP of Conferences this year! For fun I love playing pickleball, scrolling my fyp, and trying new foods! Please hit me up anytime about anything, I'm always open to talking :))",
             "image": "Alessandro",
-            "quote": "There's no such thing as useless effort",
+            "quote": "When the goal is to experience, everything is a win",
+        },
+    ],
+    "ops": [
+        {
+            "name": "Sojin Kim",
+            "position": "VP Public Relations",
+            "bio": "Hey everyone! My name is Sojin, and I'm so excited to be serving as your Vice President of Public Relations this year! I love heytea, Chipotle, hamsters, my digicam, and hanging out with friends! I would love to get to know all of you - if you ever need anything, or just want to say hi, please feel free!",
+            "image": "Sojin",
+            "quote": "the little things are never really little",
+        },
+        {
+            "name": "Vineet Saraf",
+            "position": "Treasurer",
+            "bio": "Hey guys, I'm Vineet and I'm your Treasurer. I love to play pickleball, hangout with my dog, and bake. Feel free to hit me up if you have any questions!",
+            "image": "Vineet",
+            "quote": "If you know you know",
+        },
+        {
+            "name": "Sravika Nemani",
+            "position": "Development Associate",
+            "bio": "What is up everyone?! I'm Sravika and I am the Development Associate. I love binge watching shows, finding new musical to listen to, and trying new food spots with my friends. I'm so excited to meet everyone and if you see me say hi!!",
+            "image": "Sravika",
+            "quote": "Aal izz well",
+        },
+        {
+            "name": "Arhan Chakravarthy",
+            "position": "Education Programs Coordinator",
+            "bio": "Hey guys, I'm Arhan and I'm really looking forward to being this years Education Programs Coordinator! During my free time I love playing all racket sports, watching random shows, and of course watching reels. If you ever see me never be afraid to say hi, and I look forward to meeting y'all!",
+            "image": "Arhan",
+            "quote": "I am so clever that sometimes I don't understand a single word of what I am saying",
+        },
+    ],
+    "comps": [
+        {
+            "name": "Advay Ranade",
+            "position": "VP Prepared Speaking Competitions",
+            "bio": "Hey guys, I'm Advay and I'm excited to serve as your Vice President of Prepared Speaking Competitions for this competitive season. In my free time, I like to swim and love to watch TV shows. Let me know if you have any questions or show recommendations for me because I would love to talk to you! Looking forward to working with everyone this year!",
+            "image": "Advay",
+            "quote": "Doubt kills more dreams than failure ever will.",
+        },
+        {
+            "name": "Dhriti Ganesh",
+            "position": "VP Written Competitions",
+            "bio": "Hey everyone, I'm Dhriti and I'm serving as your Vice President of Written Comps this year! In my free time, I love spending time with my friends, family, and going window shopping. Can't wait to work with all of you this upcoming school year :)",
+            "image": "Dhriti",
+            "quote": "Don't worry be happy",
+        },
+        {
+            "name": "Muhan Yang",
+            "position": "VP Case Competitions",
+            "bio": "Hey everyone, I'm Muhan and I'm serving as your VP Case this year! I love journaling, spending time with friends, and trying new food! Let me know if you have any questions, looking forward to meet everyone!",
+            "image": "Muhan",
+            "quote": "Closed mouths don't get fed",
+        },
+        {
+            "name": "Amol Agrawal",
+            "position": "VP Technology",
+            "bio": "Yo my name is Amol and ill be serving as your VP of Tech for this year. In my free time, I like to play sports, go to the gym, game, and hang out with friends. If you guys have any questions, just let me know, as I would love to get to know you all. I can't wait to have another successful year!",
+            "image": "Amol",
+            "quote": "Tough times never last, but tough people do.",
         },
     ],
     "projects": {
-        "sv": [
-            {
-                "name": "Mishti Doshi",
-                "position": "Technology Chair",
-                "bio": "Hey there! I'm Mishti and I'm one of your tech chairs this year. During my free time, I love doing archery, playing video games, and reading- if you have any book recommendations let me know :). I'm looking forward to meeting you all!",
-                "image": "Mishti",
-                "quote": "Embrace the chaos; it often leads to the most beautiful outcomes.",
-            },
-            {
-                "name": "Meghna Shenoy",
-                "position": "Technology Chair",
-                "bio": "Hey guys! I'm Meghna and I'll be one of your tech chairs this year. I love all things food, taking pics of the sunset (50% of my camera roll), dance, and spending time with my dog Enzo. I'm super excited to meet you all, so if you see me around say hi!!",
-                "image": "Meghna",
-                "quote": "If you reach the end of your rope, tie a knot in it and hang on.",
-            }
-        ],
-        "comp": [
-            {
-                "name": "Dhriti Ganesh", 
-                "position": "Competitions Chair",
-                "bio": "Hi guys! I'm Dhriti, one of your competition chairs for this school year. I love coconuts, Jolene, and hanging out with my friends :) I’m super excited to help you all explore different events, prepare for competitions, and make the most out of FBLA!",
-                "image": "Dhriti",
-                "quote": "Whatever life throws at you, duck and let it hit someone else.",
-            },
-            {
-                "name": "Jolene Luong",
-                "position": "Competitions Chair",
-                "bio": "hey everyone! Im Jolene and I'm excited to be one of the competition chairs this year. I love traveling, trying new foods, and listening to music. Please feel free to reach out if you need anything. So excited to meet everyone! ",
-                "image": "Jolene",
-                "quote": "Little by little",
-            }
-        ],
         "cs": [
             {
-                "name": "Advay Ranade",
+                "name": "Tharun Parthasarathy",
                 "position": "Community Service Chair",
-                "bio": "Wsg this is Advay and I'm excited to be one of your Community Service Project chairs this year. In my free time, I like to watch Suits, swim, and run. Lmk if yall have any questions and feel free to come up to me anytime if you do have one. I can't wait meet everyone at the community service PMs, so see yall there!",
-                "image": "Advay",
-                "quote": "Tough times never last, but tough people do",
+                "bio": "Hey everyone, I'm Tharun and I'm one of your Community Service chairs for this year. I like to read, hike, and hangout with my friends. Looking forward to seeing you all at the CS project meetings!",
+                "image": "Tharun",
+                "quote": "\"Be yourself; everyone else is already taken.\"",
             },
             {
-                "name": "Muhan Yang",
+                "name": "Aayati Vijayakar",
                 "position": "Community Service Chair",
-                "bio": "Hi everyone! I'm Muhan, super excited to be one of your Community Service chairs this year. I love going on rollercoasters and anything that spikes my adrenaline. My favorite TV shows are \"Alice in Borderland\" and \"Attack on Titan\". I like to drink boba and matcha with my labubu so hit me up anytime you have any questions or concerns!",
-                "image": "Muhan",
-                "quote": "It's ok to faint, just get back up",
+                "bio": "Hey guys, I'm Aayati and I'm one of your Community Service project chairs this year! In my free time, I love to read, bake, and play field hockey. I'm excited to get to know everyone throughout the year, and make sure to join the CS project! Feel free to reach out to me if you have any questions :)",
+                "image": "Aayati",
+                "quote": "good things take time",
             }
         ],
-        "ce": [
+        "sv": [
             {
-                "name": "Chelsea Lau",
-                "position": "Community Engagement Chair",
-                "bio": "Hey everyone, my name is Chelsea! I am so delighted to be one of your Community Engagement Chairs this year! In my free time, I love playing tennis, practicing guitar, and hanging out with my dog Hugo. If you have any questions, don't be afraid to ask me!",
-                "image": "Chelsea",
-                "quote": "'cool, cool, cool, no doubt, no doubt, no doubt' - Jake Peralta",
+                "name": "Shourya Batra",
+                "position": "Technology Chair",
+                "bio": "Hi guys, I'm Shourya, one of the tech chairs this year! In my free time, I like to go outside, play volleyball, listen to music, and code. I'm looking forward to a great year, and make sure to pull up to Software Ventures!",
+                "image": "Shourya",
+                "quote": "It's not a bug, it's a feature",
             },
             {
-                "name": "Amol Agrawal",
-                "position": "Community Engagement Chair",
-                "bio": "Whats good yall im Amol and I'll be one of your Community Engagement chairs this year. I love swimming, coding, and playing video games. Im down to answer any of yalls questions and i cant wait to meet all of you at our pms.",
-                "image": "Amol",
-                "quote": "Don’t count the days, make the days count.",
+                "name": "Michelle Chin",
+                "position": "Technology Chair",
+                "bio": "Hey everyone, I'm Michelle and I'm one of your tech chairs for this year! I love dance, hanging out with my friends, and listening to music in my free time. Can't wait to see you all at our project meetings!",
+                "image": "Michelle",
+                "quote": "\"You're entitled to your wrong opinion\" - Dance Moms",
             }
         ],
-        
-
+        "pwb": [
+            {
+                "name": "Caleb Swineford",
+                "position": "Partnership with Business Chair",
+                "bio": "Hey everyone, my name is Caleb Swineford and I'm one of your Partnership with Business chairs for this school year. I love golfing, hanging out with friends and traveling, especially to Korea! If you have any recommendations on things to do there, please let me know - I'd love to try them! If you need anything, please feel free to reach out; I am looking forward to meeting everyone this year!",
+                "image": "Caleb",
+                "quote": "\"The markets can stay irrational longer than you can stay solvent.\" - John Maynard Keynes",
+            },
+            {
+                "name": "Maya Sato",
+                "position": "Partnership with Business Chair",
+                "bio": "Hi everyone! I'm Maya and I'm one of the Partnership with Business chairs this year. In my free time, I love playing tennis, going on walks, and watching movies. Feel free to reach out if you have any questions (or movie recommendations), and I'm excited to meet you guys at our project meetings!",
+                "image": "Maya",
+                "quote": "\"If you love something, set it free. Unless it's a tiger.\" - Phil Dunphy",
+            }
+        ],
         "ml": [
             {
-                "name": "Sravika Nemani",
+                "name": "Dhanya Ganti",
                 "position": "Middle Level Chair",
-                "bio": "Hey everyone, I'm Sravika, and I am so excited to serve as one of your middle level chairs this year! I like listen to music (of literally any genre), dancing, and spending time with my friends. If you see me around dond't heistate to say hello!",
-                "image": "Sravika",
-                "quote": "Aal izz well",
+                "bio": "Hi guys! I'm Dhanya, and I'm excited to be one of your Middle Level Chairs this year! I love dance, traveling, shopping, trying new foods, and hanging out with my friends! If you see me on campus, feel free to stop by and say hi :) Looking forward to a great year, and I can't wait to meet you all!",
+                "image": "Dhanya",
+                "quote": "\"I'm disengaging\" - Dance Moms",
             },
             {
-                "name": "Suprathik Malepati",
+                "name": "Sara Ridder",
                 "position": "Middle Level Chair",
-                "bio": "Hey guys, I'm Supra and I'm excited to be one of the Middle Level chairs this year. In my free time I like watching movies and Formula 1 (this year will be Ferrari's year). Outside of school I also like dancing. Feel free to talk to me about anything!",
-                "image": "Supra",
-                "quote": "Never that deep",
+                "bio": "Hi everyone! I'm Sara and I'm excited to be one of your ML Chairs this year! I love reading, volleyball, listening to music, and binge-watching TV in my free time. I'm always open to recommendations so if you see me on campus feel free to say hi. I look forward to working with everyone and an exciting year!",
+                "image": "Sara",
+                "quote": "\"What, like it's hard?\" - Legally Blonde",
             }
         ],
-
+        "mrpd": [
+            {
+                "name": "Jolene Luong",
+                "position": "Member Relations Chair",
+                "bio": "Hey everyone, I'm Jolene and I'm serving as your member relations chair this year! I love hanging out with my friends and traveling! Looking forward to meeting everyone this year!",
+                "image": "Jolene",
+                "quote": "Every moment is a fresh beginning",
+            },
+            {
+                "name": "Gulnar Zamindar",
+                "position": "Professional Development Chair",
+                "bio": "Hi my name is Gulnar Zamindar and I am so excited to be your professional development chair this year! Some of my favorite hobbies are singing, acting, badminton, and going on walks. Another fun fact about me is that I have a cat! I'm so excited to meet you all this year, so don't hesitate to come up to me if you ever have any questions or just want to say hi!",
+                "image": "Gulnar",
+                "quote": "\"Go and book the room, not the role\" - Jeremy Guskin",
+            }
+        ],
     }
 }
-    
+
 
 
 export default officers;

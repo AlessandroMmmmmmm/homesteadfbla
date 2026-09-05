@@ -48,7 +48,7 @@ export default function Officers() {
             
             <div className="my-10 bg-purple-600 bg-opacity-20 border-2 rounded-lg  border-purple-600 px-8 py-6">  
                 <h2 className="text-purple-600 text-2xl font-bold mb-6">Operations Team</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {officers.ops.map((officer) => (
                     <OfficerCard key={officer.name} {...officer} />
                     ))}
@@ -65,9 +65,9 @@ export default function Officers() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-4 my-10">
-            {["cs", "sv", "ce", "comp", "ml"].map((teamKey) => (
+            {["cs", "sv", "pwb", "ml", "mrpd"].map((teamKey) => (
                 <div key={teamKey} className=" mb-6 bg-orange-600 bg-opacity-20 border-2 rounded-lg  border-orange-600 px-8 py-6">
-                <h2 className="text-orange-600 text-2xl font-bold mb-6">Project Chairs | {getTeamTitle(teamKey)}</h2>
+                <h2 className="text-orange-600 text-2xl font-bold mb-6">{getTeamTitle(teamKey)}</h2>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         {officers.projects[teamKey].map((officer) => (
                         <OfficerCard key={officer.name} {...officer} />
@@ -87,11 +87,11 @@ export default function Officers() {
 // Function to get readable team titles
 function getTeamTitle(key) {
   const titles = {
-    ml: "Middle Level",
-    ce: "Community Engagement",
-    cs: "Community Service",
-    comp: "Competitions",
-    sv: "Software Ventures",
+    cs: "Project Chairs | Community Service",
+    sv: "Project Chairs | Software Ventures",
+    pwb: "Project Chairs | Partnership with Business",
+    ml: "Middle Level Chairs",
+    mrpd: "Member Relations & Professional Development Chairs",
   };
   return titles[key];
 }
