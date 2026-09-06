@@ -134,7 +134,7 @@ const officers = {
             {
                 "name": "Caleb Swineford",
                 "position": "Partnership with Business Chair",
-                "email": "cswineford353@gmail.com",
+                "email": "cswineford353@student.fuhsd.org",
                 "bio": "Hey everyone, my name is Caleb Swineford and I'm one of your Partnership with Business chairs for this school year. I love golfing, hanging out with friends and traveling, especially to Korea! If you have any recommendations on things to do there, please let me know - I'd love to try them! If you need anything, please feel free to reach out; I am looking forward to meeting everyone this year!",
                 "image": "Caleb",
                 "quote": "\"The markets can stay irrational longer than you can stay solvent.\" - John Maynard Keynes",
