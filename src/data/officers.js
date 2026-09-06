@@ -11,7 +11,7 @@ const officers = {
         {
             "name": "Leah Pien",
             "position": "Executive VP - Development",
-            "email":, "lpien3@gmail.com",
+            "email": "lpien3@gmail.com",
             "bio": "Hey everyone, my name is Leah and I'll be serving as your EVP of Development this year!! I love playing tennis, traveling, and going to photobooths with my friends. I also love trying out new cafes! If you have any questions, please feel free to reach out!!",
             "image": "Leah",
             "quote": "One step at a time",
@@ -19,7 +19,7 @@ const officers = {
         {
             "name": "Alessandro Montesi",
             "position": "Executive VP - Conferences",
-            "email":, "alessandromontesi234@gmail.com",
+            "email": "alessandromontesi234@gmail.com",
             "bio": "Hi guys, I'm Alessandro and I'll be serving as your EVP of Conferences this year! For fun I love playing pickleball, scrolling my fyp, and trying new foods! Please hit me up anytime about anything, I'm always open to talking :))",
             "image": "Alessandro",
             "quote": "When the goal is to experience, everything is a win",
@@ -87,7 +87,7 @@ const officers = {
         {
             "name": "Amol Agrawal",
             "position": "VP Technology",
-            "email": "amol.agrawal1228@gmail.com"
+            "email": "amol.agrawal1228@gmail.com",
             "bio": "Yo my name is Amol and ill be serving as your VP of Tech for this year. In my free time, I like to play sports, go to the gym, game, and hang out with friends. If you guys have any questions, just let me know, as I would love to get to know you all. I can't wait to have another successful year!",
             "image": "Amol",
             "quote": "Tough times never last, but tough people do.",
@@ -116,7 +116,7 @@ const officers = {
             {
                 "name": "Shourya Batra",
                 "position": "Technology Chair",
-                "email", "shourya.batra@gmail.com",
+                "email": "shourya.batra@gmail.com",
                 "bio": "Hi guys, I'm Shourya, one of the tech chairs this year! In my free time, I like to go outside, play volleyball, listen to music, and code. I'm looking forward to a great year, and make sure to pull up to Software Ventures!",
                 "image": "Shourya",
                 "quote": "It's not a bug, it's a feature",
@@ -160,7 +160,7 @@ const officers = {
             {
                 "name": "Sara Ridder",
                 "position": "Middle Level Chair",
-                "email": "sara.e.ridder@gmail.com"
+                "email": "sara.e.ridder@gmail.com",
                 "bio": "Hi everyone! I'm Sara and I'm excited to be one of your ML Chairs this year! I love reading, volleyball, listening to music, and binge-watching TV in my free time. I'm always open to recommendations so if you see me on campus feel free to say hi. I look forward to working with everyone and an exciting year!",
                 "image": "Sara",
                 "quote": "\"What, like it's hard?\" - Legally Blonde",
