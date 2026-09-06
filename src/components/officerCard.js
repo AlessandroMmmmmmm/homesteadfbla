@@ -48,8 +48,8 @@ export default function OfficerCard({
           </div>
           {email && (
             <a
-              href = {`mailto:${email}`}
-              className = "block text-xs text-blue-300 hover:text-white hover:underline transition-colors break-all mt-1"
+              href={`mailto:${email}`}
+              className="block text-xs text-blue-300 hover:text-white hover:underline transition-colors break-all mt-1"
             >
               {email}
               </a>
