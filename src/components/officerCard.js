@@ -10,6 +10,7 @@ export default function OfficerCard({
   bio,
   quote,
   image,
+  email,
   zoom = 100, // default zoom
   objectPosition = "center", // default position
 }) {
@@ -45,6 +46,14 @@ export default function OfficerCard({
           <div className="text-md text-slate-300">
             {position}
           </div>
+          {email && (
+            <a
+              href = {`mailto:${email`}
+              className = "block text-xs text-blue-300 hover: text-white hover:underline transition-colors break-all mt-1"
+            >
+              {email}
+              </a>
+          )}
         </figcaption>
         <blockquote>
           <p className="text-md">{bio}</p>
@@ -56,4 +65,3 @@ export default function OfficerCard({
     </figure>
   );
 }
-
